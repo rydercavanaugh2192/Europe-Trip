@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Let the Fun Begin 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #FAF7F2;
+    --bone: #F0EBE1;
+    --sand: #D9CDB8;
+    --ink: #1A1714;
+    --ink-soft: #4A4540;
+    --ink-muted: #8A8178;
+    --gold: #C9A84C;
+    --gold-light: #E8D498;
+    --bologna: #C0392B;
+    --paris: #2C5F8A;
+    --brussels: #2E7D5E;
+    --amsterdam: #7B3FA0;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--ink); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 3rem 2rem;
+    position: relative; background: var(--ink); overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; opacity: 0.04;
+    background-image: radial-gradient(circle at 20% 30%, #fff 1px, transparent 1px), radial-gradient(circle at 80% 70%, #fff 1px, transparent 1px), radial-gradient(circle at 50% 50%, #fff 1px, transparent 1px);
+    background-size: 50px 50px, 70px 70px, 90px 90px;
+  }
+  .hero-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
+  .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 7vw, 6.5rem); font-weight: 400; color: #fff; line-height: 1.0; margin-bottom: 0.4rem; }
+  .hero-title em { font-style: italic; color: var(--gold-light); }
+  .hero-subtitle { font-size: 12px; font-weight: 400; letter-spacing: 0.18em; color: rgba(255,255,255,0.35); text-transform: uppercase; margin-bottom: 3.5rem; }
+  .city-stops { display: flex; gap: 0; align-items: center; justify-content: center; flex-wrap: wrap; margin-bottom: 3.5rem; }
+  .city-dot { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .city-dot-circle { width: 9px; height: 9px; border-radius: 50%; }
+  .city-dot-name { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.55); font-weight: 600; }
+  .city-dot-date { font-size: 10px; color: rgba(255,255,255,0.28); }
+  .stop-line { width: 55px; height: 1px; background: linear-gradient(to right, var(--gold), rgba(201,168,76,0.25)); margin: 0 10px; margin-bottom: 20px; flex-shrink: 0; }
+  .hero-scroll { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,0.25); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; display: flex; flex-direction: column; align-items: center; gap: 8px; animation: bounce 2.2s ease-in-out infinite; }
+  .hero-scroll::after { content: ''; display: block; width: 1px; height: 28px; background: rgba(255,255,255,0.15); }
+  @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(7px)} }
+
+  /* FLIGHTS BANNER */
+  .flights-banner { background: #111; border-bottom: 1px solid rgba(255,255,255,0.06); padding: 0; }
+  .flights-banner-inner { max-width: 960px; margin: 0 auto; padding: 2.5rem 2rem; }
+  .flights-banner-title { font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
+  .flights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+  .flight-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 4px; padding: 1rem 1.25rem; }
+  .flight-card-airline { font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 6px; }
+  .flight-card-route { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 400; color: #fff; line-height: 1.1; margin-bottom: 6px; }
+  .flight-card-meta { font-size: 12px; color: rgba(255,255,255,0.45); line-height: 1.8; }
+  .flight-card-meta strong { color: rgba(255,255,255,0.7); font-weight: 500; }
+  .flight-ref { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; background: rgba(201,168,76,0.12); color: var(--gold); padding: 3px 8px; border-radius: 2px; margin-top: 6px; }
+  .flight-stop-badge { display: inline-block; font-size: 10px; color: rgba(255,255,255,0.35); background: rgba(255,255,255,0.06); padding: 2px 7px; border-radius: 2px; margin-left: 6px; }
+
+  /* NAV */
+  nav { position: sticky; top: 0; z-index: 100; background: var(--ink); border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; overflow-x: auto; }
+  nav a { display: flex; align-items: center; gap: 7px; padding: 13px 18px; color: rgba(255,255,255,0.38); text-decoration: none; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; transition: color 0.2s; white-space: nowrap; border-bottom: 2px solid transparent; }
+  nav a:hover { color: #fff; }
+  nav a.bologna:hover, nav a.bologna.active { color: var(--bologna); border-bottom-color: var(--bologna); }
+  nav a.paris:hover, nav a.paris.active { color: var(--paris); border-bottom-color: var(--paris); }
+  nav a.brussels:hover, nav a.brussels.active { color: var(--brussels); border-bottom-color: var(--brussels); }
+  nav a.amsterdam:hover, nav a.amsterdam.active { color: var(--amsterdam); border-bottom-color: var(--amsterdam); }
+  .nav-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+
+  /* CITY SECTIONS */
+  .city-section { padding: 5rem 0; }
+  .city-section.alt { background: var(--bone); }
+  .city-header { max-width: 940px; margin: 0 auto 3rem; padding: 0 2rem; display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 2rem; }
+  .city-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 0.6rem; }
+  .city-name { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 400; line-height: 1; margin-bottom: 0.35rem; }
+  .city-meta { font-size: 12px; color: var(--ink-muted); letter-spacing: 0.04em; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+  .city-sep { opacity: 0.3; }
+  .city-tag { display: inline-flex; align-items: center; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 4px 10px; border-radius: 2px; color: #fff; }
+
+  /* HERO PHOTO */
+  .city-photo { width: 100%; max-width: 940px; margin: 0 auto 2.5rem; padding: 0 2rem; }
+  .city-photo img { width: 100%; height: 280px; object-fit: cover; border-radius: 4px; display: block; }
+  .city-photo-caption { font-size: 11px; color: var(--ink-muted); margin-top: 6px; letter-spacing: 0.04em; }
+
+  /* DAYS */
+  .days-container { max-width: 940px; margin: 0 auto; padding: 0 2rem; display: flex; flex-direction: column; gap: 1.75rem; }
+  .day-card { background: #fff; border-radius: 4px; border: 1px solid rgba(0,0,0,0.07); overflow: hidden; }
+  .day-color-bar { height: 3px; width: 100%; }
+  .day-header { padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1rem; border-bottom: 1px solid rgba(0,0,0,0.05); }
+  .day-number { font-family: 'Playfair Display', serif; font-size: 2.1rem; font-weight: 400; line-height: 1; opacity: 0.15; flex-shrink: 0; min-width: 2.5rem; }
+  .day-title { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+  .day-date { font-size: 12px; color: var(--ink-muted); }
+  .day-badge { margin-left: auto; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px; border-radius: 2px; white-space: nowrap; }
+  .badge-event { background: #FEF3C7; color: #92400E; }
+  .badge-free { background: #ECFDF5; color: #065F46; }
+  .badge-locked { background: #FEE2E2; color: #991B1B; }
+
+  /* TIMELINE */
+  .timeline { padding: 0.5rem 1.5rem 1rem; display: flex; flex-direction: column; }
+  .timeline-item { display: grid; grid-template-columns: 75px 1fr; gap: 1rem; padding: 0.7rem 0; border-bottom: 1px solid rgba(0,0,0,0.048); }
+  .timeline-item:last-child { border-bottom: none; }
+  .timeline-time { font-size: 11px; font-weight: 600; color: var(--ink-muted); letter-spacing: 0.05em; padding-top: 2px; text-align: right; }
+  .timeline-name { font-size: 14px; font-weight: 600; margin-bottom: 3px; }
+  .timeline-desc { font-size: 13px; color: var(--ink-soft); line-height: 1.55; margin-bottom: 5px; }
+  .timeline-type { display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 2px 7px; border-radius: 2px; }
+  .type-landmark { background: #EDE9FE; color: #5B21B6; }
+  .type-food { background: #FEE2E2; color: #991B1B; }
+  .type-culture { background: #E0F2FE; color: #075985; }
+  .type-event { background: #FEF3C7; color: #92400E; }
+  .type-free { background: #D1FAE5; color: #065F46; }
+  .type-nightlife { background: #FCE7F3; color: #9D174D; }
+
+  /* ATTRACTION PHOTOS */
+  .attraction-photo { width: 100%; height: 160px; object-fit: cover; border-radius: 3px; margin-top: 7px; display: block; }
+
+  /* EVENT CALLOUT */
+  .event-callout { margin: 0.25rem 1.5rem 0.75rem; padding: 0.9rem 1.1rem; border-radius: 3px; border-left: 3px solid; }
+  .event-callout.party { background: #FFF7ED; border-color: #EA580C; }
+  .event-callout.dinner { background: #F0FDF4; border-color: #16A34A; }
+  .event-label { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 3px; }
+  .event-name { font-size: 14px; font-weight: 600; }
+  .event-detail { font-size: 13px; color: var(--ink-soft); }
+
+  /* MUST EAT */
+  .must-eat { max-width: 940px; margin: 2rem auto 0; padding: 0 2rem; }
+  .must-eat-label { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 0.75rem; }
+  .pill-row { display: flex; flex-wrap: wrap; gap: 7px; }
+  .pill { font-size: 12px; padding: 5px 12px; border-radius: 100px; border: 1px solid var(--sand); color: var(--ink-soft); background: #fff; }
+
+  /* FOOTER */
+  footer { background: var(--ink); color: rgba(255,255,255,0.3); text-align: center; padding: 3rem 2rem; font-size: 12px; letter-spacing: 0.08em; }
+  footer strong { color: var(--gold); font-weight: 500; }
+
+  /* COLOR CLASSES */
+  .c-bologna { color: var(--bologna); }
+  .c-paris { color: var(--paris); }
+  .c-brussels { color: var(--brussels); }
+  .c-amsterdam { color: var(--amsterdam); }
+
+
+  /* ACCOMMODATION CARDS */
+  .accom-banner { max-width: 940px; margin: 0 auto 2rem; padding: 0 2rem; }
+  .accom-card {
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 4px;
+    padding: 1.25rem 1.5rem;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 1rem 1.5rem;
+    align-items: start;
+  }
+  .accom-icon { font-size: 1.5rem; padding-top: 2px; }
+  .accom-label { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 4px; }
+  .accom-name { font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: 3px; }
+  .accom-address { font-size: 12px; color: var(--ink-muted); margin-bottom: 10px; }
+  .accom-times { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+  .accom-time-block { }
+  .accom-time-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 2px; }
+  .accom-time-val { font-size: 14px; font-weight: 600; color: var(--ink); }
+  .accom-time-sub { font-size: 11px; color: var(--ink-muted); }
+  .accom-meta { font-size: 12px; color: var(--ink-muted); line-height: 1.8; text-align: right; }
+  .accom-code { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; padding: 3px 8px; border-radius: 2px; margin-top: 4px; background: rgba(201,168,76,0.12); color: var(--gold); }
+  .accom-note { font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 2px; margin-top: 6px; display: inline-block; }
+  .accom-note.keypad { background: #E0F2FE; color: #075985; }
+  .accom-note.lockbox { background: #ECFDF5; color: #065F46; }
+  @media (max-width: 600px) {
+    .accom-card { grid-template-columns: 1fr; }
+    .accom-meta { text-align: left; }
+  }
+
+  @media (max-width: 600px) {
+    .city-header { grid-template-columns: 1fr; }
+    .timeline-item { grid-template-columns: 62px 1fr; }
+    .stop-line { width: 28px; }
+    .flights-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-eyebrow">Summer 2026 · Europe</div>
+  <h1 class="hero-title">Let the Fun<br><em>Begin</em></h1>
+  <p class="hero-subtitle">Bologna · Paris · Brussels · Amsterdam · July 2026</p>
+  <div class="city-stops">
+    <div class="city-dot">
+      <div class="city-dot-circle" style="background:#C0392B"></div>
+      <div class="city-dot-name">Bologna</div>
+      <div class="city-dot-date">Jul 10–12</div>
+    </div>
+    <div class="stop-line"></div>
+    <div class="city-dot">
+      <div class="city-dot-circle" style="background:#2C5F8A"></div>
+      <div class="city-dot-name">Paris</div>
+      <div class="city-dot-date">Jul 12–15</div>
+    </div>
+    <div class="stop-line"></div>
+    <div class="city-dot">
+      <div class="city-dot-circle" style="background:#2E7D5E"></div>
+      <div class="city-dot-name">Brussels</div>
+      <div class="city-dot-date">Jul 15–17</div>
+    </div>
+    <div class="stop-line"></div>
+    <div class="city-dot">
+      <div class="city-dot-circle" style="background:#7B3FA0"></div>
+      <div class="city-dot-name">Amsterdam</div>
+      <div class="city-dot-date">Jul 17–19</div>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- FLIGHTS BANNER -->
+<div class="flights-banner">
+  <div class="flights-banner-inner">
+    <div class="flights-banner-title">Your Booked Flights & Travel</div>
+    <div class="flights-grid">
+
+      <!-- SWISS: EWR → BLQ -->
+      <div class="flight-card">
+        <div class="flight-card-airline">Swiss International Air Lines · LX19 + LX1670</div>
+        <div class="flight-card-route">Newark → Bologna</div>
+        <div class="flight-card-meta">
+          <strong>Wed Jul 9 (departs) → Thu Jul 10 (arrives)</strong><br>
+          Departs EWR 21:45 <span style="opacity:.4">·</span> Arrives BLQ 14:00 · Jul 10<br>
+          1 stop Zurich (ZRH) · 1h 25m layover<br>
+          Economy Light · A330-300 then E190
+        </div>
+        <div><span class="flight-ref">ZE59XF</span></div>
+      </div>
+
+      <!-- RYANAIR: BLQ → CDG (Beauvais) -->
+      <div class="flight-card">
+        <div class="flight-card-airline">Ryanair · FR3214</div>
+        <div class="flight-card-route">Bologna → Paris</div>
+        <div class="flight-card-meta">
+          <strong>Sun Jul 12, 2026</strong><br>
+          Departs BLQ 15:55 <span style="opacity:.4">·</span> Arrives BVA 17:50<br>
+          Non-stop · ~1h 55m<br>
+          <span style="color:rgba(255,200,100,0.7);font-size:11px">Note: Arrives Paris Beauvais — ~80km from Paris center</span>
+        </div>
+        <div><span class="flight-ref">PS8H3Y</span></div>
+      </div>
+
+      <!-- EUROSTAR: Paris → Brussels -->
+      <div class="flight-card">
+        <div class="flight-card-airline">Eurostar · ES 9333 · via Trainline</div>
+        <div class="flight-card-route">Paris → Brussels</div>
+        <div class="flight-card-meta">
+          <strong>Wed Jul 15, 2026</strong><br>
+          Departs Paris Gare du Nord 11:25 <span style="opacity:.4">·</span> Arrives Brussels 12:47<br>
+          Non-stop · 1h 22m · Carriage 8, Seat 101<br>
+          Eurostar Standard · €49.00
+        </div>
+        <div><span class="flight-ref">HRN2YC</span></div>
+      </div>
+
+      <!-- OMIO: Brussels → Amsterdam -->
+      <div class="flight-card">
+        <div class="flight-card-airline">Intercity · via Omio</div>
+        <div class="flight-card-route">Brussels → Amsterdam</div>
+        <div class="flight-card-meta">
+          <strong>Fri Jul 17, 2026</strong><br>
+          Brussels-Midi → Amsterdam Zuid<br>
+          ~1h 50m · Non-stop
+        </div>
+        <div><span class="flight-ref">DFNPJXC</span></div>
+      </div>
+
+      <!-- BRITISH AIRWAYS: AMS → JFK -->
+      <div class="flight-card">
+        <div class="flight-card-airline">British Airways · BA431 + BA177</div>
+        <div class="flight-card-route">Amsterdam → New York</div>
+        <div class="flight-card-meta">
+          <strong>Sun Jul 19, 2026</strong><br>
+          Departs AMS 11:35 <span style="opacity:.4">·</span> Arrives JFK 16:15<br>
+          1 stop London Heathrow (LHR T5) · 1h 25m layover<br>
+          Economy Basic · Total ~9h 15m
+        </div>
+        <div><span class="flight-ref">ZEWC33</span></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#bologna" class="bologna"><span class="nav-dot" style="background:#C0392B"></span>Bologna</a>
+  <a href="#paris" class="paris"><span class="nav-dot" style="background:#2C5F8A"></span>Paris</a>
+  <a href="#brussels" class="brussels"><span class="nav-dot" style="background:#2E7D5E"></span>Brussels</a>
+  <a href="#amsterdam" class="amsterdam"><span class="nav-dot" style="background:#7B3FA0"></span>Amsterdam</a>
+</nav>
+
+<!-- ============ BOLOGNA ============ -->
+<section class="city-section" id="bologna">
+  <div class="city-header">
+    <div>
+      <div class="city-eyebrow c-bologna">Stop 01 · Italy</div>
+      <h2 class="city-name c-bologna">Bologna</h2>
+      <div class="city-meta">
+        <span>July 10–12</span><span class="city-sep">·</span>
+        <span>3 nights</span><span class="city-sep">·</span>
+        <span>La Grassa — Italy's food capital</span>
+      </div>
+    </div>
+    <span class="city-tag" style="background:#C0392B">Emilia-Romagna</span>
+  </div>
+
+  <div class="city-photo">
+    <img src="https://images.unsplash.com/photo-1568116945096-7f9fe5cd75bb?w=1200&q=80" crossorigin="anonymous" alt="Bologna cityscape with porticoes and red rooftops">
+    <div class="city-photo-caption">Bologna's iconic red porticoes and terracotta rooftops</div>
+  </div>
+
+  <div class="days-container">
+
+    <!-- Jul 10 -->
+    <div class="day-card">
+      <div class="day-color-bar" style="background:#C0392B"></div>
+      <div class="day-header">
+        <div class="day-number">10</div>
+        <div><div class="day-title">Arrival + Explore + Fritze Crew Dinner</div><div class="day-date">Friday, July 10 · Arrives BLQ ~14:00</div></div>
+        <span class="day-badge badge-event">🍷 Dinner @ 8PM</span>
+      </div>
+      <div class="event-callout dinner">
+        <div class="event-label">Locked In — 8:00 PM</div>
+        <div class="event-name">Dinner & Drinks with the Fritze Crew</div>
+        <div class="event-detail">Land early afternoon, explore, then meet up for the night.</div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-time">~14:00</div>
+          <div class="timeline-content">
+            <div class="timeline-name">Land at Bologna Guglielmo Marconi Airport</div>
+            <div class="timeline-desc">Flight LX1670 from Zurich lands. ~20 min to city center by taxi or Aerobus BLQ shuttle. Check in, drop bags, change.</div>
+            <span class="timeline-type type-free">Transit</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">Afternoon</div>
+          <div class="timeline-content">
+            <div class="timeline-name">Piazza Maggiore & Fountain of Neptune</div>
+            <div class="timeline-desc">The beating heart of Bologna — a grand medieval square flanked by Gothic palaces, the Palazzo d'Accursio, and the massive Basilica di San Petronio. The bronze Fountain of Neptune by Giambologna has anchored this piazza since 1567. Get your first Italian espresso at a table here and just absorb it.</div>
+            <span class="timeline-type type-landmark">Landmark</span>
+            <br>
+            <img src="https://images.unsplash.com/photo-1560969184-10fe8719e047?w=800&q=80" crossorigin="anonymous" alt="Piazza Maggiore Bologna" class="attraction-photo">
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">Late Aft.</div>
+          <div class="timeline-content">
+            <div class="timeline-name">Le Due Torri (The Two Towers)</div>
+            <div class="timeline-desc">Climb the Torre degli Asinelli — ~500 steps — for sweeping views over Bologna's red rooftops. Over 100 towers once stood here; only 20 survive. The adjacent Garisenda leans more dramatically than Pisa. An absolute Bologna icon.</div>
+            <span class="timeline-type type-landmark">Landmark</span>
+            <br>
+            <img src="https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=800&q=80" crossorigin="anonymous" alt="Two Towers Bologna" class="attraction-photo">
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">~6:00 PM</div>
+          <div class="timeline-content">
+            <div class="timeline-name">Aperitivo Crawl — Via del Pratello</div>
+            <div class="timeline-desc">Bologna's legendary bar street. From 6pm, every bar puts out free snacks with every drink — just show up and order a Lambrusco or Spritz and graze your way down. The cheapest and best drinking ritual in Italy. Get a good buzz going before the Fritze crew dinner.</div>
+            <span class="timeline-type type-nightlife">Bar Crawl</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">8:00 PM</div>
+          <div class="timeline-content">
+            <div class="timeline-name">🍷 Dinner & Drinks — Fritze Crew</div>
+            <div class="timeline-desc">Locked in. Location TBD.</div>
+            <span class="timeline-type type-event">Scheduled Event</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Jul 11 — ALL FREE -->
+    <div class="day-card" style="background:#FFF8F8">
+      <div class="day-color-bar" style="background:#EA580C"></div>
+      <div class="day-header" style="background:#FFF1F1">
+        <div class="day-number">11</div>
+        <div><div class="day-title">Party Day — La Palazzina</div><div class="day-date">Saturday, July 11</div></div>
+        <span class="day-badge badge-locked">🎉 Party Night</span>
+      </div>
+      <div class="event-callout party">
+        <div class="event-label">Locked In — 8:00 PM</div>
+        <div class="event-name">🎉 Party at La Palazzina</div>
+        <div class="event-detail">Entire day is yours. No itinerary. Rest up, explore at your own pace. The night is the event.</div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-time">All Day</div>
+          <div class="timeline-content">
+            <div class="timeline-name">Free Day — Rest & Roam</div>
+            <div class="timeline-desc">Sleep in. Grab a cornetto and cappuccino at a local bar. Wander Bologna's porticoes — the longest covered walkway system in the world at 62km. When you're ready to start drinking, the Osteria del Sole near Piazza Maggiore is one of the oldest wine bars in Italy (1465) — bring your own snacks, buy a carafe of house wine for almost nothing, and sit with the locals. Pre-game responsibly. The night is the event.</div>
+            <span class="timeline-type type-free">Free Time</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">8:00 PM</div>
+          <div class="timeline-content">
+            <div class="timeline-name">🎉 Party at La Palazzina</div>
+            <div class="timeline-desc">Show up fresh.</div>
+            <span class="timeline-type type-event">Scheduled Event</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Jul 12 departure -->
+    <div class="day-card">
+      <div class="day-color-bar" style="background:#C0392B"></div>
+      <div class="day-header">
+        <div class="day-number">12</div>
+        <div><div class="day-title">Last Morning + Fly to Paris</div><div class="day-date">Sunday, July 12 · FR3214 departs 15:55</div></div>
+        <span class="day-badge badge-free">✈ BLQ → BVA 15:55</span>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-time">Morning</div>
+          <div class="timeline-content">
+            <div class="timeline-name">Final Bolognese Breakfast</div>
+            <div class="timeline-desc">One last mortadella sandwich and a macchiato. Bologna does breakfast better than anywhere in Italy — local bars, not tourist cafés.</div>
+            <span class="timeline-type type-food">Food</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">~13:30</div>
+          <div class="timeline-content">
+            <div class="timeline-name">Head to Bologna Airport (BLQ)</div>
+            <div class="timeline-desc">Ryanair FR3214. Departs 15:55, arrives Paris Beauvais (BVA) 17:50. Note: Beauvais is ~80km north of Paris — budget ~90 min on the Beauvais shuttle bus to Porte Maillot. Plan arrival accordingly.</div>
+            <span class="timeline-type type-free">Transit</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="must-eat">
+    <div class="must-eat-label">Must Eat in Bologna</div>
+    <div class="pill-row">
+      <span class="pill">Tagliatelle al Ragù</span><span class="pill">Tortellini in Brodo</span><span class="pill">Lasagna Verde</span>
+      <span class="pill">Mortadella Sandwich</span><span class="pill">Parmigiano Reggiano</span><span class="pill">Crescentine</span>
+    </div>
+    <div class="must-eat-label" style="margin-top:0.75rem">Signature Drinks</div>
+    <div class="pill-row">
+      <span class="pill" style="border-color:#C0392B;color:#C0392B">🍷 Lambrusco — local sparkling red wine, served slightly chilled</span>
+      <span class="pill" style="border-color:#C0392B;color:#C0392B">🍊 Aperol Spritz — the classic Italian aperitivo before dinner</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PARIS ============ -->
+<section class="city-section alt" id="paris">
+  <div class="city-header">
+    <div>
+      <div class="city-eyebrow c-paris">Stop 02 · France</div>
+      <h2 class="city-name c-paris">Paris</h2>
+      <div class="city-meta">
+        <span>July 12–15</span><span class="city-sep">·</span>
+        <span>3 nights</span><span class="city-sep">·</span>
+        <span>The City of Light</span>
+      </div>
+    </div>
+    <span class="city-tag" style="background:#2C5F8A">Île-de-France</span>
+  </div>
+
+  <div class="city-photo">
+    <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=1200&q=80" crossorigin="anonymous" alt="Paris Eiffel Tower at sunset">
+    <div class="city-photo-caption">Paris — the Eiffel Tower at dusk from the Seine</div>
+  </div>
+
+  <div class="accom-banner">
+    <div class="accom-card">
+      <div class="accom-icon">🏠</div>
+      <div>
+        <div class="accom-label">Airbnb · Paris</div>
+        <div class="accom-name">Historic district 1BD 6 people loft</div>
+        <div class="accom-address">4 Impasse des Peintres, 75002 Paris — 2nd Arrondissement · Host: Gilian</div>
+        <div class="accom-times">
+          <div class="accom-time-block">
+            <div class="accom-time-label">Check-in</div>
+            <div class="accom-time-val">Sun, Jul 12</div>
+            <div class="accom-time-sub">After 5:00 PM</div>
+          </div>
+          <div class="accom-time-block">
+            <div class="accom-time-label">Checkout</div>
+            <div class="accom-time-val">Wed, Jul 15</div>
+            <div class="accom-time-sub">By 10:00 AM</div>
+          </div>
+        </div>
+        <span class="accom-note keypad">🔢 Self check-in — keypad</span>
+      </div>
+      <div class="accom-meta">
+        5 guests<br>3 nights<br>$1,047.45 total<br>
+        <span class="accom-code">HMZJA3XNCN</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="days-container">
+
+    <!-- Jul 12 evening -->
+    <div class="day-card">
+      <div class="day-color-bar" style="background:#2C5F8A"></div>
+      <div class="day-header">
+        <div class="day-number">12</div>
+        <div><div class="day-title">Arrive Paris + Le Marais Evening</div><div class="day-date">Sunday, July 12 · Lands BVA ~17:50</div></div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-time">~19:30</div>
+          <div class="timeline-content">
+            <div class="timeline-name">Arrive Paris via Beauvais Shuttle + Check In</div>
+            <div class="timeline-desc">Beauvais shuttle drops at Porte Maillot (~90 min). Head to 4 Impasse des Peintres, 75002 (2nd Arr.) and check in — self check-in via keypad, available after 5:00 PM.</div>
+            <span class="timeline-type type-free">Transit</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">Evening</div>
+          <div class="timeline-content">
+            <div class="timeline-name">Le Marais Stroll</div>
+            <div class="timeline-desc">Paris's most magnetic neighborhood — medieval streets, the Place des Vosges (oldest planned square in Paris), galleries, and the city's best falafel on Rue des Rosiers. Easy first night wander.</div>
+            <span class="timeline-type type-landmark">Neighborhood</span>
+            <br>
+            <img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?w=800&q=80" crossorigin="anonymous" alt="Le Marais Paris" class="attraction-photo">
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">Dinner</div>
+          <div class="timeline-content">
+            <div class="timeline-name">Le Relais de l'Entrecôte</div>
+            <div class="timeline-desc">No menu, no decisions — steak frites with the legendary secret walnut sauce, served until the plate is clean. Quintessentially Parisian, great for groups. No reservations; queue early or arrive after 9pm.</div>
+            <span class="timeline-type type-food">Food</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">Late Night</div>
+          <div class="timeline-content">
+            <div class="timeline-name">Wine on the Seine</div>
+            <div class="timeline-desc">Grab a cheap bottle of Bordeaux from any cave à vins (wine shop) and sit on the banks of the Seine near Notre-Dame. Half of Paris does this on warm July nights. No bar bill, best atmosphere in the city. Then hit the bars around Rue de Lappe or Bastille for a proper night out.</div>
+            <span class="timeline-type type-nightlife">Drinks</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Jul 13 -->
+    <div class="day-card">
+      <div class="day-color-bar" style="background:#2C5F8A"></div>
+      <div class="day-header">
+        <div class="day-number">13</div>
+        <div><div class="day-title">Day Trip — Reims & the Champagne Houses</div><div class="day-date">Monday, July 13</div></div>
+        <span class="day-badge badge-event">🍾 Two Tours Booked</span>
+      </div>
+
+      <div class="event-callout dinner" style="background:#F5F0FF;border-color:#7B3FA0">
+        <div class="event-label">Locked In</div>
+        <div class="event-name">Veuve Clicquot @ 12:00 PM · Taittinger @ 3:30 PM</div>
+        <div class="event-detail">Reims is ~45 min from Paris Gare de l'Est by TGV. Take an early train to be there well before noon.</div>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-time">~8:30 AM</div>
+          <div class="timeline-content">
+            <div class="timeline-name">Train: Paris Gare de l'Est → Reims</div>
+            <div class="timeline-desc">TGV takes about 45 minutes. Trains run frequently — grab one that gets you to Reims by 11am to leave time to find Veuve Clicquot. The Champagne region starts the moment you step off the train.</div>
+            <span class="timeline-type type-free">Transit</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">Morning</div>
+          <div class="timeline-content">
+            <div class="timeline-name">Reims Cathedral (Cathédrale Notre-Dame de Reims)</div>
+            <div class="timeline-desc">One of the greatest Gothic cathedrals in France — 34 French kings were crowned here, including Charles VII with Joan of Arc at his side. The stained glass windows include panels by Marc Chagall. Worth 30–45 minutes before the tours start.</div>
+            <span class="timeline-type type-landmark">Landmark</span>
+            <br>
+            <img src="https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?w=800&q=80" crossorigin="anonymous" alt="Reims Cathedral France" class="attraction-photo">
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">12:00 PM</div>
+          <div class="timeline-content">
+            <div class="timeline-name">🍾 Veuve Clicquot Champagne House Tour</div>
+            <div class="timeline-desc">One of the most iconic Champagne houses in the world. The tour takes you through the legendary chalk cellars (crayères) carved 30 meters underground — 24km of tunnels, 30 million bottles ageing in the dark. Veuve's signature is the Yellow Label and the rosé. Drink slowly, you have a 3:30.</div>
+            <span class="timeline-type type-event">Booked Tour</span>
+            <br>
+            <img src="https://images.unsplash.com/photo-1528823872057-9c018a7a7553?w=800&q=80" crossorigin="anonymous" alt="Champagne cellars Reims" class="attraction-photo">
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">~2:30 PM</div>
+          <div class="timeline-content">
+            <div class="timeline-name">Lunch in Reims + Walk Between Houses</div>
+            <div class="timeline-desc">Grab a quick lunch at a brasserie near Place Drouet-d'Erlon — Reims's main square. The two champagne houses are both in the same neighborhood, about a 10-minute walk apart. Eat something substantial before Taittinger.</div>
+            <span class="timeline-type type-food">Food</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">3:30 PM</div>
+          <div class="timeline-content">
+            <div class="timeline-name">🍾 Taittinger Champagne House Tour</div>
+            <div class="timeline-desc">Taittinger is family-owned — one of the last major independent Champagne houses — and their cellars are some of the most spectacular in Reims, built into Roman chalk quarries from the 4th century. Their Comtes de Champagne blanc de blancs is one of the finest Champagnes made. By this point you'll have earned your stripes.</div>
+            <span class="timeline-type type-event">Booked Tour</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">Evening</div>
+          <div class="timeline-content">
+            <div class="timeline-name">Train back to Paris</div>
+            <div class="timeline-desc">Plenty of evening trains back from Reims to Paris Gare de l'Est (~45 min). Get back, eat something, and sleep it off — you've got the Louvre tomorrow.</div>
+            <span class="timeline-type type-free">Transit</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Jul 14 — Bastille Day -->
+    <div class="day-card">
+      <div class="day-color-bar" style="background:#2C5F8A"></div>
+      <div class="day-header">
+        <div class="day-number">14</div>
+        <div><div class="day-title">Louvre, Eiffel & Bastille Day</div><div class="day-date">Tuesday, July 14 — Bastille Day 🇫🇷</div></div>
+        <span class="day-badge badge-event">🇫🇷 Bastille Day</span>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-time">Morning</div>
+          <div class="timeline-content">
+            <div class="timeline-name">The Louvre</div>
+            <div class="timeline-desc">The world's most visited museum. Mona Lisa, Venus de Milo, Winged Victory of Samothrace. Book skip-the-line tickets in advance — queues without them hit 4+ hours in July. Go early, it fills fast.</div>
+            <span class="timeline-type type-culture">Museum</span>
+            <br>
+            <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800&q=80" crossorigin="anonymous" alt="Louvre Museum Paris" class="attraction-photo">
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">Afternoon</div>
+          <div class="timeline-content">
+            <div class="timeline-name">Tuileries → Champs-Élysées → Arc de Triomphe</div>
+            <div class="timeline-desc">Walk west from the Louvre through the Tuileries gardens all the way up the Champs-Élysées. Climb the Arc de Triomphe (284 steps) for one of the great city views in the world — 12 boulevards radiating outward in perfect geometry. Extra electric today with Bastille Day crowds.</div>
+            <span class="timeline-type type-landmark">Landmark</span>
+            <br>
+            <img src="https://images.unsplash.com/photo-1522093007474-d86e9bf7ba6f?w=800&q=80" crossorigin="anonymous" alt="Arc de Triomphe Paris" class="attraction-photo">
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">Sunset</div>
+          <div class="timeline-content">
+            <div class="timeline-name">Eiffel Tower</div>
+            <div class="timeline-desc">Book tickets in advance — sell out weeks ahead. Sunset from the second level is the move. Then plant yourself on the Champ de Mars below for the fireworks — you're already in the best spot in Paris.</div>
+            <span class="timeline-type type-landmark">Icon</span>
+            <br>
+            <img src="https://images.unsplash.com/photo-1543349689-9a4d426bee8e?w=800&q=80" crossorigin="anonymous" alt="Eiffel Tower at night" class="attraction-photo">
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">Night</div>
+          <div class="timeline-content">
+            <div class="timeline-name">Bastille Day Fireworks + All-Night Paris 🎆</div>
+            <div class="timeline-desc">France's national holiday — the Eiffel Tower fireworks display is one of the greatest annual spectacles in Europe. Grab a bottle of champagne and watch from the Champ de Mars. The whole city is electric. After the fireworks, every bar in Paris stays open until dawn — Montmartre and Pigalle go absolutely off on July 14. Biggest night of the trip.</div>
+            <span class="timeline-type type-nightlife">National Holiday</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Jul 15 departure -->
+    <div class="day-card">
+      <div class="day-color-bar" style="background:#2C5F8A"></div>
+      <div class="day-header">
+        <div class="day-number">15</div>
+        <div><div class="day-title">Notre-Dame Morning + Train to Brussels</div><div class="day-date">Wednesday, July 15</div></div>
+        <span class="day-badge badge-free">🚄 Paris → Brussels</span>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-time">Morning</div>
+          <div class="timeline-content">
+            <div class="timeline-name">⏰ Checkout by 10:00 AM — then Notre-Dame Cathedral</div>
+            <div class="timeline-desc">Fully restored after the 2019 fire and reopened to visitors — towers included. A genuine once-in-a-generation moment: you're among the first travelers to see it returned to full glory. Don't skip it.</div>
+            <span class="timeline-type type-landmark">Landmark</span>
+            <br>
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" crossorigin="anonymous" alt="Notre Dame Cathedral Paris" class="attraction-photo">
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">Midday</div>
+          <div class="timeline-content">
+            <div class="timeline-name">Eurostar ES 9333 to Brussels</div>
+            <div class="timeline-desc">Paris Gare du Nord departs 11:25, arrives Brussels 12:47. Non-stop, 1h 22m. Your seat: Carriage 8, Seat 101. Be at Gare du Nord by 11:10 per your ticket instructions.</div>
+            <span class="timeline-type type-free">Transit</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="must-eat">
+    <div class="must-eat-label">Must Eat in Paris</div>
+    <div class="pill-row">
+      <span class="pill">Steak frites (Entrecôte)</span><span class="pill">Croissant au beurre</span><span class="pill">Jambon-beurre baguette</span>
+      <span class="pill">French onion soup</span><span class="pill">Crème brûlée</span><span class="pill">Crêpe from a street cart</span><span class="pill">Macarons (Ladurée)</span>
+    </div>
+    <div class="must-eat-label" style="margin-top:0.75rem">Signature Drinks</div>
+    <div class="pill-row">
+      <span class="pill" style="border-color:#2C5F8A;color:#2C5F8A">🍷 Kir Royale — champagne + blackcurrant liqueur, the Parisian aperitif</span>
+      <span class="pill" style="border-color:#2C5F8A;color:#2C5F8A">☕ Café crème — a proper French white coffee, taken standing at the bar</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BRUSSELS ============ -->
+<section class="city-section" id="brussels">
+  <div class="city-header">
+    <div>
+      <div class="city-eyebrow c-brussels">Stop 03 · Belgium</div>
+      <h2 class="city-name c-brussels">Brussels</h2>
+      <div class="city-meta">
+        <span>July 15–17</span><span class="city-sep">·</span>
+        <span>2 nights</span><span class="city-sep">·</span>
+        <span>Chocolate, Waffles & Grand Squares</span>
+      </div>
+    </div>
+    <span class="city-tag" style="background:#2E7D5E">Belgium</span>
+  </div>
+
+  <div class="city-photo">
+    <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=1200&q=80" crossorigin="anonymous" alt="Grand Place Brussels at night">
+    <div class="city-photo-caption">Brussels's Grand-Place — often called the most beautiful town square in Europe</div>
+  </div>
+
+  <div class="accom-banner">
+    <div class="accom-card">
+      <div class="accom-icon">🏠</div>
+      <div>
+        <div class="accom-label">Airbnb · Brussels</div>
+        <div class="accom-name">Appartement confortable</div>
+        <div class="accom-address">Rue Bara 159, 1070 Anderlecht, Belgium · Host: Abdulwahab</div>
+        <div class="accom-times">
+          <div class="accom-time-block">
+            <div class="accom-time-label">Check-in</div>
+            <div class="accom-time-val">Wed, Jul 15</div>
+            <div class="accom-time-sub">After 3:00 PM</div>
+          </div>
+          <div class="accom-time-block">
+            <div class="accom-time-label">Checkout</div>
+            <div class="accom-time-val">Fri, Jul 17</div>
+            <div class="accom-time-sub">By 11:00 AM</div>
+          </div>
+        </div>
+        <span class="accom-note lockbox">🔒 Self check-in — lockbox</span>
+      </div>
+      <div class="accom-meta">
+        5 guests<br>2 nights<br>$522.49 total<br>
+        <span class="accom-code">HMD4S5984M</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="days-container">
+
+    <!-- Jul 15 evening -->
+    <div class="day-card">
+      <div class="day-color-bar" style="background:#2E7D5E"></div>
+      <div class="day-header">
+        <div class="day-number">15</div>
+        <div><div class="day-title">Arrive + Grand-Place Evening</div><div class="day-date">Wednesday, July 15 (evening)</div></div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-time">Evening</div>
+          <div class="timeline-content">
+            <div class="timeline-name">Check In + Grand-Place</div>
+            <div class="timeline-desc">Drop bags at Rue Bara 159, Anderlecht (self check-in via lockbox, after 3:00 PM) then head to Grand-Place. Many argue this is the most beautiful town square in Europe. Gothic guild halls and the ornate City Hall surrounded by gold-trimmed facades. Stunning by day, transcendent at night when lit up. Walk it twice.</div>
+            <span class="timeline-type type-landmark">Landmark</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">Night</div>
+          <div class="timeline-content">
+            <div class="timeline-name">Belgian Beer Bar Crawl — Grand-Place Area</div>
+            <div class="timeline-desc">Belgium has 1,500+ beers and you need to start drinking them immediately. Delirium Café near Grand-Place holds the Guinness World Record for most beers on a menu (2,000+). Nearby, À la Mort Subite ("Sudden Death") is a century-old Art Nouveau café serving gueuze straight from the cask. Order whatever the bartender recommends and keep going. Tonight is purely a drinking night.</div>
+            <span class="timeline-type type-nightlife">Bar Crawl</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Jul 16 full day -->
+    <div class="day-card">
+      <div class="day-color-bar" style="background:#2E7D5E"></div>
+      <div class="day-header">
+        <div class="day-number">16</div>
+        <div><div class="day-title">Full Day — Brussels</div><div class="day-date">Thursday, July 16</div></div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-time">Morning</div>
+          <div class="timeline-content">
+            <div class="timeline-name">Manneken Pis + Comic Strip Murals Route</div>
+            <div class="timeline-desc">The famous bronze fountain — smaller than expected but a rite of passage. Then follow Brussels's Comic Strip Route: 50+ enormous street murals of Tintin, the Smurfs, Lucky Luke, and Marsupilami scattered across the city. The best way to discover neighborhoods.</div>
+            <span class="timeline-type type-landmark">Landmark</span>
+            <br>
+            <img src="https://images.unsplash.com/photo-1531316282941-5a77ef8985a5?w=800&q=80" crossorigin="anonymous" alt="Brussels street art comic murals" class="attraction-photo">
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">Midday</div>
+          <div class="timeline-content">
+            <div class="timeline-name">Magritte Museum</div>
+            <div class="timeline-desc">The world's largest collection of René Magritte's surrealist work — the artist behind the man in the bowler hat. Even if you're not an art person, Magritte's paintings are genuinely strange, funny, and unforgettable.</div>
+            <span class="timeline-type type-culture">Museum</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">Lunch</div>
+          <div class="timeline-content">
+            <div class="timeline-name">Belgian Frites — Maison Antoine</div>
+            <div class="timeline-desc">The legendary Brussels friterie near Place Jourdan. Thick-cut, double-fried in beef fat, served in a paper cone with mayonnaise. Belgian fries are categorically different from what you know. This is the pilgrimage spot.</div>
+            <span class="timeline-type type-food">Food</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">Afternoon</div>
+          <div class="timeline-content">
+            <div class="timeline-name">The Atomium</div>
+            <div class="timeline-desc">A giant steel atom structure built for the 1958 World's Fair — one of the most architecturally singular landmarks in Europe. Panoramic city views from the top sphere. Worth the 20-minute metro ride. Go at golden hour.</div>
+            <span class="timeline-type type-landmark">Landmark</span>
+            <br>
+            <img src="https://images.unsplash.com/photo-1491557345352-5929e343eb89?w=800&q=80" crossorigin="anonymous" alt="Atomium Brussels" class="attraction-photo">
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">Evening</div>
+          <div class="timeline-content">
+            <div class="timeline-name">Waffles + Chocolate Shopping (Royal Galleries)</div>
+            <div class="timeline-desc">Brussels street waffles (gaufres) are eaten topped with cream and fruit — they're not what you get at brunch back home. Then hit the Galeries Royales Saint-Hubert for Neuhaus or Pierre Marcolini chocolate. Pick up gifts here.</div>
+            <span class="timeline-type type-food">Food</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">Night</div>
+          <div class="timeline-content">
+            <div class="timeline-name">Cantillon Tap Room + Moeder Lambic</div>
+            <div class="timeline-desc">If you didn't make it to Cantillon during the day, Moeder Lambic Fontainas is the best bar in Brussels to drink serious Belgian beer — 40+ taps, all Belgian, all outstanding. Order a kriek (cherry lambic), a Rochefort 10, and whatever seasonal they have. You're in the world capital of beer. Drink accordingly.</div>
+            <span class="timeline-type type-nightlife">Drinks</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Jul 17 depart -->
+    <div class="day-card">
+      <div class="day-color-bar" style="background:#2E7D5E"></div>
+      <div class="day-header">
+        <div class="day-number">17</div>
+        <div><div class="day-title">Morning + Train to Amsterdam</div><div class="day-date">Friday, July 17</div></div>
+        <span class="day-badge badge-free">🚄 Brussels → Amsterdam</span>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-time">Morning</div>
+          <div class="timeline-content">
+            <div class="timeline-name">⏰ Checkout by 11:00 AM — then Cantillon Brewery (if time allows)</div>
+            <div class="timeline-desc">The only active lambic brewery in Brussels — a 1900s time capsule of wooden barrels and wild-yeast fermentation. Included in "1,000 Places to See Before You Die." Check hours before you go.</div>
+            <span class="timeline-type type-culture">Culture</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">Midday</div>
+          <div class="timeline-content">
+            <div class="timeline-name">Train to Amsterdam Zuid (Omio · DFNPJXC)</div>
+            <div class="timeline-desc">Brussels-Midi → Amsterdam Zuid. Friday July 17 — exact departure time in your Omio app. ~1h 50m. Note: Amsterdam Zuid is a quick metro ride from city center (not Amsterdam Centraal).</div>
+            <span class="timeline-type type-free">Transit</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="must-eat">
+    <div class="must-eat-label">Must Eat in Brussels</div>
+    <div class="pill-row">
+      <span class="pill">Belgian frites + mayo (Maison Antoine)</span><span class="pill">Brussels waffle</span>
+      <span class="pill">Moules-frites</span><span class="pill">Pierre Marcolini chocolate</span><span class="pill">Speculoos</span>
+    </div>
+    <div class="must-eat-label" style="margin-top:0.75rem">Signature Drinks</div>
+    <div class="pill-row">
+      <span class="pill" style="border-color:#2E7D5E;color:#2E7D5E">🍺 Trappist ale — Chimay, Orval, or Rochefort; order at any traditional estaminet</span>
+      <span class="pill" style="border-color:#2E7D5E;color:#2E7D5E">🍺 Gueuze — Brussels's wild-fermented lambic blend; dry, funky, unlike anything else</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AMSTERDAM ============ -->
+<section class="city-section alt" id="amsterdam">
+  <div class="city-header">
+    <div>
+      <div class="city-eyebrow c-amsterdam">Stop 04 · Netherlands</div>
+      <h2 class="city-name c-amsterdam">Amsterdam</h2>
+      <div class="city-meta">
+        <span>July 17–19</span><span class="city-sep">·</span>
+        <span>2 nights</span><span class="city-sep">·</span>
+        <span>Canals, Van Gogh & the Golden Age</span>
+      </div>
+    </div>
+    <span class="city-tag" style="background:#7B3FA0">Netherlands</span>
+  </div>
+
+  <div class="city-photo">
+    <img src="https://images.unsplash.com/photo-1534351590666-13e3e96b5017?w=1200&q=80" crossorigin="anonymous" alt="Amsterdam canal houses at sunset">
+    <div class="city-photo-caption">Amsterdam's UNESCO canal ring at golden hour</div>
+  </div>
+
+  <div class="accom-banner">
+    <div class="accom-card">
+      <div class="accom-icon">🏠</div>
+      <div>
+        <div class="accom-label">Airbnb · Amsterdam</div>
+        <div class="accom-name">The Amsterdam arch suite Central spacious</div>
+        <div class="accom-address">1012 DV Amsterdam, Netherlands — City Center · Host: Diana</div>
+        <div class="accom-times">
+          <div class="accom-time-block">
+            <div class="accom-time-label">Check-in</div>
+            <div class="accom-time-val">Fri, Jul 17</div>
+            <div class="accom-time-sub">After 4:00 PM</div>
+          </div>
+          <div class="accom-time-block">
+            <div class="accom-time-label">Checkout</div>
+            <div class="accom-time-val">Sun, Jul 19</div>
+            <div class="accom-time-sub">By 10:00 AM</div>
+          </div>
+        </div>
+      </div>
+      <div class="accom-meta">
+        5 guests<br>2 nights<br>$1,587.51 total<br>
+        <span class="accom-code">HMQDENDBFH</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="days-container">
+
+    <!-- Jul 17 evening -->
+    <div class="day-card">
+      <div class="day-color-bar" style="background:#7B3FA0"></div>
+      <div class="day-header">
+        <div class="day-number">17</div>
+        <div><div class="day-title">Arrive + Jordaan Evening</div><div class="day-date">Friday, July 17 (evening)</div></div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-time">Arrival</div>
+          <div class="timeline-content">
+            <div class="timeline-name">Check In + Rent Bikes Immediately</div>
+            <div class="timeline-desc">Check into the arch suite at 1012 DV Amsterdam City Center (after 4:00 PM, host Diana) then rent bikes immediately. Amsterdam was designed for bikes. Renting one in the first hour changes the entire trip — everything is faster, more fun, and more local. MacBike and Starbikes are reliable near Centraal station.</div>
+            <span class="timeline-type type-culture">Local Pro Tip</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">Evening</div>
+          <div class="timeline-content">
+            <div class="timeline-name">Jordaan Neighborhood + Canal Walk</div>
+            <div class="timeline-desc">The most photogenic neighborhood in Amsterdam — 17th-century canal houses, independent galleries, and cozy brown cafés. Prinsengracht and Keizersgracht at dusk are as beautiful as anywhere in Europe.</div>
+            <span class="timeline-type type-landmark">Neighborhood</span>
+            <br>
+            <img src="https://images.unsplash.com/photo-1583069955278-87f02e4a0db2?w=800&q=80" crossorigin="anonymous" alt="Jordaan Amsterdam canal" class="attraction-photo">
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">Night</div>
+          <div class="timeline-content">
+            <div class="timeline-name">Brown Café Crawl — Jordaan</div>
+            <div class="timeline-desc">Amsterdam's brown cafés are the best bars in Europe — dark wood, candles, Heineken on tap, Jenever shots, zero pretension. Start at Café 't Smalle (1786, one of the oldest), then Café de Vergulde Gaper, then wherever the night takes you. Order a kopstootje — a Jenever with a beer chaser — and do it like the Dutch. Tonight is for getting properly acquainted with Amsterdam.</div>
+            <span class="timeline-type type-nightlife">Bar Crawl</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Jul 18 full day -->
+    <div class="day-card">
+      <div class="day-color-bar" style="background:#7B3FA0"></div>
+      <div class="day-header">
+        <div class="day-number">18</div>
+        <div><div class="day-title">Museums, Canal Cruise & De Wallen</div><div class="day-date">Saturday, July 18</div></div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-time">Morning</div>
+          <div class="timeline-content">
+            <div class="timeline-name">Van Gogh Museum</div>
+            <div class="timeline-desc">The world's largest Van Gogh collection — 200+ paintings tracing his entire career from the dark Dutch period to the explosive color of Arles and Saint-Rémy. The Sunflowers, The Bedroom, and dozens of self-portraits. Book tickets weeks in advance in summer — it sells out.</div>
+            <span class="timeline-type type-culture">Museum</span>
+            <br>
+            <img src="https://images.unsplash.com/photo-1575505586569-646b2ca898fc?w=800&q=80" crossorigin="anonymous" alt="Van Gogh Museum Amsterdam" class="attraction-photo">
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">Late Morn.</div>
+          <div class="timeline-content">
+            <div class="timeline-name">Rijksmuseum</div>
+            <div class="timeline-desc">One of the truly great art museums in the world — Rembrandt's Night Watch, Vermeer's The Milkmaid, and the full sweep of Dutch Golden Age painting and craftsmanship. The building itself is extraordinary. If you see two museums this trip, make it these two.</div>
+            <span class="timeline-type type-culture">Museum</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">Afternoon</div>
+          <div class="timeline-content">
+            <div class="timeline-name">Canal Cruise</div>
+            <div class="timeline-desc">The single best way to experience Amsterdam. A 1-hour boat tour through the UNESCO World Heritage canal ring — 60 miles of canals, 1,500 bridges. The perspective from water level is completely different. Evening cruises are especially atmospheric.</div>
+            <span class="timeline-type type-landmark">Experience</span>
+            <br>
+            <img src="https://images.unsplash.com/photo-1576924542622-772281b13f82?w=800&q=80" crossorigin="anonymous" alt="Amsterdam canal boat cruise" class="attraction-photo">
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">Late Aft.</div>
+          <div class="timeline-content">
+            <div class="timeline-name">De Wallen (Red Light District)</div>
+            <div class="timeline-desc">Worth walking through for the architecture and history alone. Medieval buildings, hidden courtyards (seek out the Begijnhof — a tranquil secret garden from the 14th century), and some of the city's oldest churches sit right next to it all.</div>
+            <span class="timeline-type type-culture">Neighborhood</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">Evening</div>
+          <div class="timeline-content">
+            <div class="timeline-name">Heineken Experience (Optional)</div>
+            <div class="timeline-desc">The brewery tour is touristy but genuinely entertaining — beer history, science, and three complimentary beers on the rooftop terrace. Good group fun.</div>
+            <span class="timeline-type type-culture">Culture</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">Late Night</div>
+          <div class="timeline-content">
+            <div class="timeline-name">Leidseplein & Rembrandtplein Bar Crawl</div>
+            <div class="timeline-desc">Amsterdam's two main nightlife squares. Leidseplein has the big outdoor terraces and live music bars — Paradiso (legendary music venue) is right there. Rembrandtplein is louder and more chaotic, ringed by packed bars. Last night in Europe: make it count. The trams run all night so getting back is easy no matter how deep you go.</div>
+            <span class="timeline-type type-nightlife">Last Night Out</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Jul 19 departure -->
+    <div class="day-card">
+      <div class="day-color-bar" style="background:#7B3FA0"></div>
+      <div class="day-header">
+        <div class="day-number">19</div>
+        <div><div class="day-title">Last Morning + Fly Home</div><div class="day-date">Sunday, July 19 · BA431 departs 11:35</div></div>
+        <span class="day-badge badge-free">✈ AMS → LHR → JFK</span>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-time">Early</div>
+          <div class="timeline-content">
+            <div class="timeline-name">⏰ Checkout by 10:00 AM — then Albert Cuypmarkt (if time allows)</div>
+            <div class="timeline-desc">Amsterdam's biggest street market — fresh stroopwafels, Dutch aged cheese, herring sandwiches, and flowers. A great last-morning experience before the airport.</div>
+            <span class="timeline-type type-food">Market</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">~9:00</div>
+          <div class="timeline-content">
+            <div class="timeline-name">Head to Amsterdam Schiphol (AMS)</div>
+            <div class="timeline-desc">BA431 departs AMS 11:35 → London Heathrow (LHR T5) 11:55. Connection 1h 25m. Then BA177 departs LHR 13:20 → JFK Terminal 8, arriving 16:15. Total ~9h 15m home.</div>
+            <span class="timeline-type type-free">Transit</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="must-eat">
+    <div class="must-eat-label">Must Eat in Amsterdam</div>
+    <div class="pill-row">
+      <span class="pill">Stroopwafel (fresh, from market)</span><span class="pill">Haring (raw herring)</span><span class="pill">Aged Gouda</span>
+      <span class="pill">Bitterballen</span><span class="pill">Rijsttafel (Indonesian feast)</span><span class="pill">Poffertjes</span>
+    </div>
+    <div class="must-eat-label" style="margin-top:0.75rem">Signature Drinks</div>
+    <div class="pill-row">
+      <span class="pill" style="border-color:#7B3FA0;color:#7B3FA0">🍸 Jenever — Dutch gin, served neat in a tulip glass; the original gin</span>
+      <span class="pill" style="border-color:#7B3FA0;color:#7B3FA0">🍺 Heineken on tap — non-negotiable; tastes better here than anywhere else</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div style="margin-bottom:0.4rem"><strong>Let the Fun Begin · Summer 2026</strong></div>
+  <div>Bologna · Paris · Brussels · Amsterdam · July 10–19, 2026</div>
+</footer>
+
+<script>
+  const sections = document.querySelectorAll('.city-section');
+  const navLinks = document.querySelectorAll('nav a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        navLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { threshold: 0.25 });
+  sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
