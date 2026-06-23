@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Switzerland & Austria — July 19–27</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:        #1a1a1a;
+    --mist:       #f0efe9;
+    --snow:       #fafaf8;
+    --alpine:     #3b5c4a;
+    --glacier:    #6b8fa3;
+    --gold:       #b89a5e;
+    --rule:       #d8d4c8;
+    --mid:        #6e6b62;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--snow);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    background: linear-gradient(160deg, #1c2b22 0%, #2e4a5a 55%, #4a6e5c 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  /* mountain silhouettes */
+  .hero::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 55%;
+    background:
+      /* back peaks */
+      radial-gradient(ellipse 120px 180px at 10% 100%, #2a3f32 0%, transparent 60%),
+      radial-gradient(ellipse 160px 200px at 25% 100%, #263a2e 0%, transparent 55%),
+      radial-gradient(ellipse 140px 220px at 42% 100%, #1e3028 0%, transparent 60%),
+      radial-gradient(ellipse 200px 250px at 60% 100%, #22352b 0%, transparent 55%),
+      radial-gradient(ellipse 130px 190px at 75% 100%, #263c30 0%, transparent 60%),
+      radial-gradient(ellipse 170px 210px at 90% 100%, #1e3028 0%, transparent 55%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: #f5f3ee;
+    letter-spacing: -0.01em;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: #c8ddd4;
+  }
+
+  .hero-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-weight: 300;
+    color: rgba(245,243,238,0.65);
+    margin-top: 1.2rem;
+    letter-spacing: 0.05em;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-divider {
+    width: 50px;
+    height: 1px;
+    background: var(--gold);
+    margin: 2rem auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(245,243,238,0.4);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .scroll-hint::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 40px;
+    background: rgba(245,243,238,0.3);
+    animation: drip 2s ease-in-out infinite;
+  }
+
+  @keyframes drip {
+    0%, 100% { opacity: 0.2; transform: scaleY(0.5); transform-origin: top; }
+    50% { opacity: 0.6; transform: scaleY(1); transform-origin: top; }
+  }
+
+  /* ── OVERVIEW STRIP ── */
+  .overview {
+    background: var(--alpine);
+    color: #e8f0ec;
+    padding: 2.5rem 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: wrap;
+  }
+
+  .overview-stat {
+    padding: 0.5rem 3rem;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.15);
+  }
+  .overview-stat:last-child { border-right: none; }
+
+  .overview-stat .num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 300;
+    line-height: 1;
+    color: #fff;
+  }
+
+  .overview-stat .label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(232,240,236,0.65);
+    margin-top: 0.3rem;
+  }
+
+  /* ── SECTION WRAPPER ── */
+  .section {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+  }
+
+  .section-eyebrow {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--alpine);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+  }
+
+  .section-intro {
+    font-size: 1rem;
+    color: var(--mid);
+    max-width: 600px;
+    margin-bottom: 3rem;
+    line-height: 1.8;
+  }
+
+  /* ── STOP CARDS ── */
+  .stops { display: flex; flex-direction: column; gap: 0; }
+
+  .stop {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 0 2.5rem;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+  .stop:first-child { border-top: 1px solid var(--rule); }
+
+  .stop-date-col {
+    padding-top: 0.2rem;
+  }
+
+  .stop-dates {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--ink);
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .stop-nights {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-top: 0.4rem;
+  }
+
+  .stop-country-badge {
+    display: inline-block;
+    margin-top: 0.8rem;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border-radius: 2px;
+  }
+  .badge-ch { background: rgba(59,92,74,0.12); color: var(--alpine); }
+  .badge-at { background: rgba(107,143,163,0.15); color: var(--glacier); }
+
+  .stop-content h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.7rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 0.3rem;
+    line-height: 1.2;
+  }
+
+  .stop-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--mid);
+    margin-bottom: 1rem;
+  }
+
+  .stop-desc {
+    font-size: 0.9rem;
+    color: #4a4740;
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+  }
+
+  .highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.8rem;
+  }
+
+  .highlight-tag {
+    font-size: 11px;
+    font-weight: 400;
+    padding: 0.25rem 0.75rem;
+    border: 1px solid var(--rule);
+    border-radius: 20px;
+    color: var(--mid);
+    letter-spacing: 0.02em;
+  }
+
+  /* ── TRAINS SECTION ── */
+  .trains-bg {
+    background: var(--mist);
+    padding: 5rem 2rem;
+  }
+
+  .trains-inner { max-width: 820px; margin: 0 auto; }
+
+  .train-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+    font-size: 0.88rem;
+  }
+
+  .train-table th {
+    text-align: left;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mid);
+    padding: 0 1rem 0.8rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .train-table td {
+    padding: 1rem 1rem 1rem 0;
+    border-bottom: 1px solid var(--rule);
+    color: #3a3830;
+    vertical-align: top;
+  }
+
+  .train-table tr:last-child td { border-bottom: none; }
+
+  .train-route {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+
+  .train-arrow { color: var(--gold); margin: 0 0.4rem; }
+
+  .train-highlight {
+    display: inline-block;
+    background: var(--alpine);
+    color: #fff;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.15rem 0.5rem;
+    border-radius: 2px;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+  }
+
+  /* ── PRACTICAL SECTION ── */
+  .practical-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    margin-top: 2.5rem;
+  }
+
+  .prac-card {
+    padding: 1.8rem;
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--alpine);
+  }
+
+  .prac-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 0.7rem;
+    color: var(--ink);
+  }
+
+  .prac-card p, .prac-card li {
+    font-size: 0.85rem;
+    color: var(--mid);
+    line-height: 1.75;
+  }
+
+  .prac-card ul { padding-left: 1.1rem; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.35);
+    text-align: center;
+    padding: 2.5rem 2rem;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+  }
+
+  footer span { color: var(--gold); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .stop { grid-template-columns: 1fr; gap: 0.5rem; }
+    .stop-date-col { display: flex; align-items: baseline; gap: 1rem; }
+    .stop-country-badge { margin-top: 0; }
+    .overview-stat { padding: 0.5rem 1.5rem; }
+    .train-table { font-size: 0.8rem; }
+    .train-table .hide-mobile { display: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-hint::after { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">A Journey Through the Alps</p>
+  <h1>Switzerland<br>&amp; <em>Austria</em></h1>
+  <div class="hero-divider"></div>
+  <p class="hero-sub">July 19 – 27, 2026</p>
+  <div class="scroll-hint">Scroll</div>
+</section>
+
+<!-- OVERVIEW STRIP -->
+<div class="overview">
+  <div class="overview-stat">
+    <div class="num">8</div>
+    <div class="label">Nights</div>
+  </div>
+  <div class="overview-stat">
+    <div class="num">7</div>
+    <div class="label">Cities</div>
+  </div>
+  <div class="overview-stat">
+    <div class="num">2</div>
+    <div class="label">Countries</div>
+  </div>
+  <div class="overview-stat">
+    <div class="num">5</div>
+    <div class="label">Scenic Trains</div>
+  </div>
+</div>
+
+<!-- ITINERARY -->
+<div class="section">
+  <p class="section-eyebrow">Itinerary</p>
+  <h2 class="section-title">City by City</h2>
+  <p class="section-intro">A loop through the best of the Alps — starting in Switzerland, ending in Austria, moving almost entirely by scenic train.</p>
+
+  <div class="stops">
+
+    <!-- ZURICH -->
+    <div class="stop">
+      <div class="stop-date-col">
+        <div class="stop-dates">Jul 19</div>
+        <div class="stop-nights">1 night</div>
+        <span class="stop-country-badge badge-ch">Switzerland</span>
+      </div>
+      <div class="stop-content">
+        <h3>Zurich</h3>
+        <p class="stop-tagline">Arrival & orientation</p>
+        <p class="stop-desc">Fly in and settle. Zurich is one of Europe's most livable cities — a compact, walkable old town (Altstadt) straddling the Limmat River, with Lake Zurich stretching south toward the Alps. The Bahnhofstrasse is world-class shopping; Lindenhügel hill gives a panoramic view over the city and water. Good first-night restaurants in Zürich's Niederdorf quarter.</p>
+        <div class="highlights">
+          <span class="highlight-tag">Altstadt</span>
+          <span class="highlight-tag">Lake Zurich</span>
+          <span class="highlight-tag">Bahnhofstrasse</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- LUCERNE -->
+    <div class="stop">
+      <div class="stop-date-col">
+        <div class="stop-dates">Jul 20–21</div>
+        <div class="stop-nights">2 nights</div>
+        <span class="stop-country-badge badge-ch">Switzerland</span>
+      </div>
+      <div class="stop-content">
+        <h3>Lucerne</h3>
+        <p class="stop-tagline">Alpine lake city with a medieval heart</p>
+        <p class="stop-desc">Lucerne is where Switzerland clicks into place. The city sits on a glittering lake ringed by Alps, and its 14th-century Chapel Bridge (Kapellbrücke) — covered wooden walkway, flower boxes, painted panels — is one of the most photographed structures in Europe. The city walls are intact and walkable. The Lion Monument, a dying lion carved into a cliff face, is genuinely moving.</p>
+        <p class="stop-desc">The headline excursion is Mount Pilatus — take the world's steepest cogwheel railway up from Alpnachstad and a gondola down (or vice versa), with views of 73 Alpine peaks. Mount Rigi is a gentler alternative, known as the "Queen of the Mountains." Both are half-day trips. A boat cruise on Lake Lucerne — with the Alps reflected in the water — is worth an afternoon.</p>
+        <div class="highlights">
+          <span class="highlight-tag">Chapel Bridge</span>
+          <span class="highlight-tag">Mount Pilatus</span>
+          <span class="highlight-tag">Lake Cruise</span>
+          <span class="highlight-tag">Mount Rigi</span>
+          <span class="highlight-tag">Lion Monument</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- INTERLAKEN -->
+    <div class="stop">
+      <div class="stop-date-col">
+        <div class="stop-dates">Jul 22–23</div>
+        <div class="stop-nights">2 nights</div>
+        <span class="stop-country-badge badge-ch">Switzerland</span>
+      </div>
+      <div class="stop-content">
+        <h3>Interlaken</h3>
+        <p class="stop-tagline">Gateway to the Jungfrau, Europe's highest railway</p>
+        <p class="stop-desc">Interlaken sits between two lakes — Thunersee and Brienzersee — with the snowy Bernese Oberland peaks as a backdrop. The town itself is charming but the real reason to come is what's above it. The Jungfraujoch cogwheel railway climbs to 11,332 feet, the highest railway station in Europe, past glaciers and through a tunnel bored through the Eiger. At the top: a glacier plateau, an ice palace carved into the glacier, and views across three countries. Book tickets well in advance for July.</p>
+        <p class="stop-desc">Lauterbrunnen Valley — a short train ride from Interlaken — is one of the most beautiful valleys in the Alps, glacially carved with 72 waterfalls pouring off the cliffs. Staubbachfall drops 300 meters freely. The Sound of Music was not filmed here, but it looks like it should have been.</p>
+        <div class="highlights">
+          <span class="highlight-tag">Jungfraujoch</span>
+          <span class="highlight-tag">Lauterbrunnen Valley</span>
+          <span class="highlight-tag">Staubbachfall</span>
+          <span class="highlight-tag">Lake Brienz</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ZERMATT -->
+    <div class="stop">
+      <div class="stop-date-col">
+        <div class="stop-dates">Jul 24</div>
+        <div class="stop-nights">1 night</div>
+        <span class="stop-country-badge badge-ch">Switzerland</span>
+      </div>
+      <div class="stop-content">
+        <h3>Zermatt</h3>
+        <p class="stop-tagline">The Matterhorn, up close</p>
+        <p class="stop-desc">No cars. No exhaust. Zermatt is one of those rare places that has genuinely preserved itself — electric vehicles only, narrow cobblestone streets, wooden chalets, and no chain hotels above a certain height. The Matterhorn rises directly above town, its jagged pyramid unmistakable at any hour. At sunrise it turns pink. At dusk it catches the last light while the valley goes dark.</p>
+        <p class="stop-desc">The Gornergrat Railway — a red cog train that climbs from town — reaches 10,170 feet and deposits you at eye level with the Matterhorn and 29 surrounding peaks above 4,000 meters. It's one of the great train rides in the world. Trails from the top range from easy walks to serious alpine routes.</p>
+        <div class="highlights">
+          <span class="highlight-tag">Matterhorn</span>
+          <span class="highlight-tag">Gornergrat Railway</span>
+          <span class="highlight-tag">Car-free village</span>
+          <span class="highlight-tag">Alpine trails</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- INNSBRUCK -->
+    <div class="stop">
+      <div class="stop-date-col">
+        <div class="stop-dates">Jul 25</div>
+        <div class="stop-nights">1 night</div>
+        <span class="stop-country-badge badge-at">Austria</span>
+      </div>
+      <div class="stop-content">
+        <h3>Innsbruck</h3>
+        <p class="stop-tagline">Where the Tyrol Alps meet Habsburg history</p>
+        <p class="stop-desc">Innsbruck is where you cross into Austria, and it announces itself immediately — the Nordkette mountain range rises almost vertically from the edge of the old town, making it one of the only cities in the world where you can be in a Gothic street and see ski slopes above you. The Altstadt is anchored by the Golden Roof, a gilded Gothic balcony built for Emperor Maximilian I in 1500. The Hofburg Imperial Palace is nearby. The Nordkette funicular runs from the city center to 2,256 meters in under 20 minutes.</p>
+        <div class="highlights">
+          <span class="highlight-tag">Golden Roof</span>
+          <span class="highlight-tag">Nordkette Funicular</span>
+          <span class="highlight-tag">Hofburg Palace</span>
+          <span class="highlight-tag">Altstadt</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- HALLSTATT -->
+    <div class="stop">
+      <div class="stop-date-col">
+        <div class="stop-dates">Jul 26–27</div>
+        <div class="stop-nights">1 night</div>
+        <span class="stop-country-badge badge-at">Austria</span>
+      </div>
+      <div class="stop-content">
+        <h3>Hallstatt</h3>
+        <p class="stop-tagline">The most beautiful village in the world</p>
+        <p class="stop-desc">Hallstatt is real, despite looking like a movie set. A village of 700 people built into a sheer cliff face above an emerald Alpine lake, with salt mines that have been in operation for 7,000 years (the oldest in the world). It's a UNESCO World Heritage Site and the visual inspiration for Arendelle in Frozen. You arrive by train to the opposite shore, then take a short ferry across.</p>
+        <p class="stop-desc">The Hallstatt Skywalk gives a birds-eye view of the entire village from a platform above it. The Salt Mine tour is genuinely interesting — miners' slides, an underground salt lake, and the history of a civilization built on salt. The village itself is small enough to walk completely in an hour, but beautiful enough to spend two nights without running out of things to look at. Book accommodation far in advance — there are very few rooms and demand is enormous.</p>
+        <div class="highlights">
+          <span class="highlight-tag">Skywalk viewpoint</span>
+          <span class="highlight-tag">Salt Mine tour</span>
+          <span class="highlight-tag">Lake ferry</span>
+          <span class="highlight-tag">UNESCO village</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SALZBURG -->
+    <div class="stop">
+      <div class="stop-date-col">
+        <div class="stop-dates">Jul 27</div>
+        <div class="stop-nights">1 night</div>
+        <span class="stop-country-badge badge-at">Austria</span>
+      </div>
+      <div class="stop-content">
+        <h3>Salzburg</h3>
+        <p class="stop-tagline">Mozart's city, fortress on the hill</p>
+        <p class="stop-desc">Salzburg is a proper European city with one of the finest baroque old towns on the continent. Arrive from Hallstatt in the afternoon and head straight into the old town — everything worth seeing is walkable. The Hohensalzburg Fortress — the largest fully preserved medieval castle in Central Europe — sits on a hill above the city. The view from up there at sunset, over terracotta rooftops toward the Alps, is the defining image of the trip. Mozart was born here; his birthplace is a small museum on the Getreidegasse, the main shopping street with its beautiful wrought-iron guild signs. The Mirabell Gardens are a short walk across the river.</p>
+        <div class="highlights">
+          <span class="highlight-tag">Hohensalzburg Fortress</span>
+          <span class="highlight-tag">Getreidegasse</span>
+          <span class="highlight-tag">Mirabell Gardens</span>
+          <span class="highlight-tag">Mozart's Birthplace</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- TRAINS -->
+<div class="trains-bg">
+  <div class="trains-inner">
+    <p class="section-eyebrow">Getting Around</p>
+    <h2 class="section-title">The Train Routes</h2>
+    <p class="section-intro">Almost every leg of this trip is by scenic train. No rental car needed. The routes through the Alps are themselves part of the experience.</p>
+
+    <table class="train-table">
+      <thead>
+        <tr>
+          <th>Route</th>
+          <th class="hide-mobile">Duration</th>
+          <th>What to look for</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="train-route">Zurich <span class="train-arrow">→</span> Lucerne</div>
+            <div style="font-size:11px;color:var(--mid);margin-top:0.2rem;">IC train, direct</div>
+          </td>
+          <td class="hide-mobile">50 min</td>
+          <td>Lake Zurich and the Mittelland opening up toward the Alps</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="train-route">Lucerne <span class="train-arrow">→</span> Interlaken <span class="train-highlight">Scenic</span></div>
+            <div style="font-size:11px;color:var(--mid);margin-top:0.2rem;">Brünig Pass line</div>
+          </td>
+          <td class="hide-mobile">2 hrs</td>
+          <td>Mountain pass crossing with lake views on both sides — one of Switzerland's most beautiful rail routes</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="train-route">Interlaken <span class="train-arrow">→</span> Zermatt</div>
+            <div style="font-size:11px;color:var(--mid);margin-top:0.2rem;">via Brig</div>
+          </td>
+          <td class="hide-mobile">3.5 hrs</td>
+          <td>Upper Rhône Valley — broad glacial valley with peaks on both sides deepening as you go</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="train-route">Zermatt <span class="train-arrow">→</span> Innsbruck</div>
+            <div style="font-size:11px;color:var(--mid);margin-top:0.2rem;">via Zurich</div>
+          </td>
+          <td class="hide-mobile">4.5 hrs</td>
+          <td>Cross-country run through the Swiss heartland, then into Tyrol as you enter Austria</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="train-route">Innsbruck <span class="train-arrow">→</span> Hallstatt</div>
+            <div style="font-size:11px;color:var(--mid);margin-top:0.2rem;">via Attnang-Puchheim + ferry</div>
+          </td>
+          <td class="hide-mobile">3 hrs</td>
+          <td>Salzkammergut lake district — the Austrian lake region that's almost unknown outside Europe</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="train-route">Hallstatt <span class="train-arrow">→</span> Salzburg</div>
+            <div style="font-size:11px;color:var(--mid);margin-top:0.2rem;">regional rail</div>
+          </td>
+          <td class="hide-mobile">2.5 hrs</td>
+          <td>Austrian foothills and farmland opening into the Salzach valley</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p style="margin-top:1.5rem;font-size:0.82rem;color:var(--mid);line-height:1.7;">
+      <strong style="color:var(--ink);">Rail passes:</strong> A Swiss Travel Pass covers most Swiss trains, including scenic mountain railways. For Austria, point-to-point tickets are typically sufficient. Buy mountain railway tickets (Jungfraujoch, Gornergrat, Pilatus) in advance — July is peak season and they sell out.
+    </p>
+  </div>
+</div>
+
+<!-- PRACTICAL NOTES -->
+<div class="section">
+  <p class="section-eyebrow">Before You Go</p>
+  <h2 class="section-title">Practical Notes</h2>
+
+  <div class="practical-grid">
+    <div class="prac-card">
+      <h4>Weather</h4>
+      <p>Late July is ideal for the Alps — warm valleys, mostly clear skies, full access to mountain railways and trails. Pack a light layer and a rain jacket for elevation. Afternoon thunderstorms are common in the mountains.</p>
+    </div>
+
+    <div class="prac-card">
+      <h4>Language</h4>
+      <p>German throughout — Swiss German in Switzerland, Austrian German in Austria. Both sound quite different from standard German but English is universally spoken at hotels, restaurants, and tourist sites.</p>
+    </div>
+
+    <div class="prac-card">
+      <h4>Currency</h4>
+      <p>Swiss Franc (CHF) in Switzerland. Euro (€) in Austria. Switzerland does not use the Euro. Credit cards widely accepted everywhere, but carry some cash for small mountain villages.</p>
+    </div>
+
+    <div class="prac-card">
+      <h4>Flying Home</h4>
+      <p>Fly out of Salzburg (W.A. Mozart Airport — small, easy, 20 min from center) or take a 3-hour train to Vienna for more international connections.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>Switzerland &amp; Austria &nbsp;·&nbsp; <span>July 19 – 27, 2026</span> &nbsp;·&nbsp; Built with care</p>
+</footer>
+
+</body>
+</html>
