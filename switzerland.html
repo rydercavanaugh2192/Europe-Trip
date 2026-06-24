@@ -409,7 +409,77 @@
   @media (prefers-reduced-motion: reduce) {
     .scroll-hint::after { animation: none; }
   }
+
+  /* ── MAP ── */
+  .map-section {
+    padding: 5rem 2rem;
+    background: var(--snow);
+  }
+  .map-inner { max-width: 820px; margin: 0 auto; }
+  #trip-map {
+    width: 100%;
+    height: 520px;
+    border-radius: 4px;
+    margin-top: 2rem;
+    border: 1px solid var(--rule);
+    z-index: 0;
+  }
+  .leaflet-popup-content-wrapper {
+    border-radius: 3px !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15) !important;
+    padding: 0 !important;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif !important;
+  }
+  .leaflet-popup-content {
+    margin: 0 !important;
+    width: 220px !important;
+  }
+  .map-popup img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    display: block;
+  }
+  .map-popup-body {
+    padding: 0.9rem 1rem 1rem;
+  }
+  .map-popup-date {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #3b5c4a;
+    margin-bottom: 0.2rem;
+  }
+  .map-popup-city {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: #1a1a1a;
+    line-height: 1.1;
+    margin-bottom: 0.4rem;
+  }
+  .map-popup-desc {
+    font-size: 11px;
+    color: #6e6b62;
+    line-height: 1.6;
+  }
+  .custom-marker {
+    background: #3b5c4a;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: transform 0.15s;
+  }
+  .custom-marker:hover { transform: scale(1.4); }
+  .custom-marker.austria { background: #6b8fa3; }
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 </head>
 <body>
 
@@ -441,6 +511,123 @@
     <div class="label">Scenic Trains</div>
   </div>
 </div>
+
+<!-- MAP -->
+<div class="map-section">
+  <div class="map-inner">
+    <p class="section-eyebrow">The Route</p>
+    <h2 class="section-title">Where We're Going</h2>
+    <p class="section-intro">Click any marker to explore the destination. Green markers are Switzerland, blue are Austria.</p>
+    <div id="trip-map"></div>
+  </div>
+</div>
+
+<script>
+(function() {
+  var destinations = [
+    {
+      name: "Zürich", country: "ch", dates: "Jul 19",
+      lat: 47.3769, lng: 8.5417,
+      desc: "Arrival city. Old town, Lake Zurich, Bahnhofstrasse.",
+      img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Zurich_-_Grossm%C3%BCnster_und_Limmat.jpg/640px-Zurich_-_Grossm%C3%BCnster_und_Limmat.jpg"
+    },
+    {
+      name: "Lucerne", country: "ch", dates: "Jul 20–21",
+      lat: 47.0502, lng: 8.3093,
+      desc: "Chapel Bridge, Mount Pilatus, Lake Lucerne boat cruise.",
+      img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Luzern_Kapellbruecke.jpg/640px-Luzern_Kapellbruecke.jpg"
+    },
+    {
+      name: "Interlaken", country: "ch", dates: "Jul 22",
+      lat: 46.6863, lng: 7.8632,
+      desc: "Gateway to the Jungfraujoch — Europe's highest railway station.",
+      img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Interlaken_village_with_Jungfrau.jpg/640px-Interlaken_village_with_Jungfrau.jpg"
+    },
+    {
+      name: "Zermatt", country: "ch", dates: "Jul 23–24",
+      lat: 46.0207, lng: 7.7491,
+      desc: "Car-free village at the foot of the Matterhorn. Gornergrat Railway.",
+      img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Matterhorn_from_Domh%C3%BCtte_-_2.jpg/640px-Matterhorn_from_Domh%C3%BCtte_-_2.jpg"
+    },
+    {
+      name: "Innsbruck", country: "at", dates: "Jul 25",
+      lat: 47.2692, lng: 11.4041,
+      desc: "Habsburg old town with the Alps rising directly behind it.",
+      img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Innsbruck_Altstadt.jpg/640px-Innsbruck_Altstadt.jpg"
+    },
+    {
+      name: "Salzburg", country: "at", dates: "Jul 26",
+      lat: 47.8095, lng: 13.0550,
+      desc: "Mozart's birthplace. Hohensalzburg Fortress, baroque old town.",
+      img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Salzburg_-_Hohensalzburg.jpg/640px-Salzburg_-_Hohensalzburg.jpg"
+    },
+    {
+      name: "Hallstatt", country: "at", dates: "Jul 27–28",
+      lat: 47.5622, lng: 13.6493,
+      desc: "World's most beautiful village. UNESCO lake, salt mines, Skywalk.",
+      img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Hallstatt_-_UNESCO_World_Heritage.jpg/640px-Hallstatt_-_UNESCO_World_Heritage.jpg"
+    },
+    {
+      name: "Vienna", country: "at", dates: "Jul 29–31",
+      lat: 48.2082, lng: 16.3738,
+      desc: "The grand finale. Ringstrasse, Stephansdom, imperial museums. Fly home.",
+      img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Stephansdom_Wien.jpg/640px-Stephansdom_Wien.jpg"
+    }
+  ];
+
+  var map = L.map('trip-map', {
+    center: [47.4, 10.2],
+    zoom: 6,
+    zoomControl: true,
+    scrollWheelZoom: false
+  });
+
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
+    subdomains: 'abcd',
+    maxZoom: 19
+  }).addTo(map);
+
+  // Draw route line
+  var routeCoords = destinations.map(function(d) { return [d.lat, d.lng]; });
+  L.polyline(routeCoords, {
+    color: '#b89a5e',
+    weight: 2,
+    opacity: 0.6,
+    dashArray: '6, 6'
+  }).addTo(map);
+
+  destinations.forEach(function(d, i) {
+    var markerEl = document.createElement('div');
+    markerEl.className = 'custom-marker' + (d.country === 'at' ? ' austria' : '');
+
+    var icon = L.divIcon({
+      html: markerEl.outerHTML,
+      className: '',
+      iconSize: [14, 14],
+      iconAnchor: [7, 7],
+      popupAnchor: [0, -10]
+    });
+
+    var popupContent =
+      '<div class="map-popup">' +
+        '<img src="' + d.img + '" alt="' + d.name + '" onerror="this.style.display=\'none\'">' +
+        '<div class="map-popup-body">' +
+          '<div class="map-popup-date">' + d.dates + '</div>' +
+          '<div class="map-popup-city">' + d.name + '</div>' +
+          '<div class="map-popup-desc">' + d.desc + '</div>' +
+        '</div>' +
+      '</div>';
+
+    L.marker([d.lat, d.lng], { icon: icon })
+      .addTo(map)
+      .bindPopup(popupContent, { maxWidth: 220, minWidth: 220 });
+  });
+
+  // Enable scroll zoom on click
+  map.once('focus', function() { map.scrollWheelZoom.enable(); });
+})();
+</script>
 
 <!-- ITINERARY -->
 <div class="section">
