@@ -477,6 +477,44 @@
   }
   .custom-marker:hover { transform: scale(1.4); }
   .custom-marker.austria { background: #6b8fa3; }
+
+  /* ── ACTIVITIES & FOOD ── */
+  .stop-section-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--alpine);
+    margin: 1.2rem 0 0.5rem;
+  }
+  .stop-section-label.food { color: var(--gold); }
+  .activity-list, .food-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0.5rem;
+  }
+  .activity-list li, .food-list li {
+    font-size: 0.88rem;
+    color: #4a4740;
+    line-height: 1.7;
+    padding: 0.2rem 0 0.2rem 1.1rem;
+    position: relative;
+  }
+  .activity-list li::before {
+    content: '↑';
+    position: absolute;
+    left: 0;
+    color: var(--alpine);
+    font-size: 0.8rem;
+  }
+  .food-list li::before {
+    content: '◆';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 0.5rem;
+    top: 0.45rem;
+  }
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
@@ -698,6 +736,21 @@
         <h3>Zurich</h3>
         <p class="stop-tagline">Arrival & orientation</p>
         <p class="stop-desc">Fly in and settle. Zurich is one of Europe's most livable cities — a compact, walkable old town (Altstadt) straddling the Limmat River, with Lake Zurich stretching south toward the Alps. The Bahnhofstrasse is world-class shopping; Lindenhügel hill gives a panoramic view over the city and water. Good first-night restaurants in Zürich's Niederdorf quarter.</p>
+
+        <p class="stop-section-label">Activities</p>
+        <ul class="activity-list">
+          <li><strong>Altstadt walk</strong> — Wander the medieval lanes of Niederdorf, cross the Münsterbrücke, and climb to the twin towers of the Grossmünster for rooftop views over the Limmat.</li>
+          <li><strong>Lake Zurich swim</strong> — July is peak swimming season. The Seebad Enge and Strandbad Mythenquai are beloved outdoor lidos right on the lake. Incredibly Swiss.</li>
+          <li><strong>Uetliberg hike</strong> — Zurich's local mountain at 870m, reachable in 20 min by train. Hike the ridge to Felsenegg for panoramic views of the city, lake, and Alps.</li>
+          <li><strong>Fondue Tram</strong> — A vintage tram that loops through the city while you eat fondue. Iconic Zurich experience, book well in advance.</li>
+        </ul>
+
+        <p class="stop-section-label food">Must Eat</p>
+        <ul class="food-list">
+          <li><strong>Cheese fondue</strong> — Start the trip right. Swiss Chuchi in the Altstadt has been serving fondue since 1953 and is the most beloved spot in Zurich. Book ahead.</li>
+          <li><strong>Zürcher Geschnetzeltes</strong> — Zurich's signature dish: thinly sliced veal in a creamy white wine and mushroom sauce, served with Rösti. Try it at Kronenhalle or Zeughauskeller.</li>
+          <li><strong>Swiss chocolate</strong> — Pick up a bar from Läderach or Sprüngli on Bahnhofstrasse. Sprüngli's Luxemburgerli (macarons) are a Zurich institution.</li>
+        </ul>
         <div class="highlights">
           <span class="highlight-tag">Altstadt</span>
           <span class="highlight-tag">Lake Zurich</span>
@@ -720,6 +773,23 @@
         <p class="stop-desc">The headline excursion is <strong>Mount Pilatus</strong> — home to the world's steepest cogwheel railway, climbing from Alpnachstad at a maximum gradient of 48°. Take the cogwheel up and a gondola down (or vice versa) for a full loop with views across 73 Alpine peaks. At the summit there are walking trails, a panorama restaurant, and on clear days visibility stretching into Germany and France. A must-do half-day trip.</p>
         <p class="stop-desc"><strong>Mount Rigi</strong> — the "Queen of the Mountains" — is worth considering as a hike. At 1,798 meters, it sits directly above Lake Lucerne and offers one of the most sweeping views in Switzerland: five lakes, the Swiss Plateau, and the full Bernese and Central Alps spread out in every direction. The classic route is a 3–4 hour hike up from Weggis or Vitznau, with a rack railway back down. Less dramatic than Pilatus but more suited to a proper day of hiking.</p>
         <p class="stop-desc">Also not to be missed: the <strong>Stoos Ridge Hike</strong> (Klingenstock to Fraunalpstock), one of the most scenic ridge walks in central Switzerland. The trail runs along an exposed Alpine ridge with panoramic views in every direction — the Bernese Alps, Lake Lucerne, and the surrounding valleys spread out below. The hike takes roughly 2–3 hours and is best done on a clear morning. Access is via the Stoos funicular, one of the world's steepest, from Schwyz.</p>
+
+        <p class="stop-section-label">Must-Do Activities</p>
+        <ul class="activity-list">
+          <li><strong>Mount Pilatus cogwheel railway</strong> — World's steepest cogwheel (48° gradient) from Alpnachstad to the summit. Combine with the gondola for a full loop. Book online in advance for July. Half-day.</li>
+          <li><strong>Stoos Ridge Hike</strong> — Klingenstock to Fraunalpstock. One of the best ridge walks in Switzerland. Take the Stoos funicular from Schwyz, then hike the exposed ridge with 360° views. 2–3 hrs.</li>
+          <li><strong>Mount Rigi hike</strong> — Hike up from Weggis or Vitznau (3–4 hrs), then take the rack railway back down. Sweeping views of five lakes and the full Alpine panorama. Great full-day option.</li>
+          <li><strong>Lake Lucerne boat cruise</strong> — The CGN steamers run multiple routes. Even a short loop gives stunning reflections of the Alps in the water. Best in the morning on a clear day.</li>
+          <li><strong>Chapel Bridge & Lion Monument</strong> — Walk the 14th-century Kapellbrücke, then find the Lion Monument carved into the cliff face. The latter is one of the most emotionally striking sculptures in Europe.</li>
+        </ul>
+
+        <p class="stop-section-label food">Must Eat</p>
+        <ul class="food-list">
+          <li><strong>Raclette</strong> — You're in the heart of Swiss cheese country. Order raclette at any mountain restaurant and watch them scrape molten Gruyère over boiled potatoes, pickles, and onions.</li>
+          <li><strong>Rösti</strong> — Switzerland's answer to hash browns, pan-fried into a golden cake. Order it as a side or topped with a fried egg and bacon for a proper mountain breakfast.</li>
+          <li><strong>Fondue at the summit</strong> — Eating fondue at the Pilatus-Kulm restaurant at 2,132m is a non-negotiable Swiss experience. Reserve a table when you book your railway ticket.</li>
+          <li><strong>Swiss chocolate</strong> — Visit the Lindt Experience at the Museum of Transport or the Funky Chocolate Club for a tasting or workshop.</li>
+        </ul>
         <div class="highlights">
           <span class="highlight-tag">Chapel Bridge</span>
           <span class="highlight-tag">Mount Pilatus</span>
@@ -743,6 +813,21 @@
         <p class="stop-tagline">Gateway to the Jungfrau, Europe's highest railway</p>
         <p class="stop-desc">Interlaken sits between two lakes — Thunersee and Brienzersee — with the snowy Bernese Oberland peaks as a backdrop. The town itself is charming but the real reason to come is what's above it. The Jungfraujoch cogwheel railway climbs to 11,332 feet, the highest railway station in Europe, past glaciers and through a tunnel bored through the Eiger. At the top: a glacier plateau, an ice palace carved into the glacier, and views across three countries. Book tickets well in advance for July.</p>
         <p class="stop-desc">Lauterbrunnen Valley — a short train ride from Interlaken — is one of the most beautiful valleys in the Alps, glacially carved with 72 waterfalls pouring off the cliffs. Staubbachfall drops 300 meters freely. The Sound of Music was not filmed here, but it looks like it should have been.</p>
+
+        <p class="stop-section-label">Must-Do Activities</p>
+        <ul class="activity-list">
+          <li><strong>Jungfraujoch</strong> — The headline excursion. Cogwheel train to 11,332 ft — the highest railway station in Europe — through a tunnel bored into the Eiger. Glacier plateau, ice palace, views into three countries. Book weeks in advance. Full day.</li>
+          <li><strong>Lauterbrunnen Valley</strong> — Take a short train down into this glacially carved valley with 72 waterfalls. Staubbachfall plunges 300m freely off the cliff face. One of the most striking landscapes in Switzerland.</li>
+          <li><strong>Schynige Platte hike</strong> — Rack railway to an Alpine plateau at 1,967m with a botanical garden of native Alpine flora and panoramic views of the Eiger, Mönch, and Jungfrau. Easy ridge walks from the top.</li>
+          <li><strong>Paragliding</strong> — Interlaken is one of Europe's premier paragliding destinations. Tandem flights launch from Beatenberg above the lakes. Not for the faint-hearted.</li>
+        </ul>
+
+        <p class="stop-section-label food">Must Eat</p>
+        <ul class="food-list">
+          <li><strong>Fondue with a mountain view</strong> — Interlaken's mountain restaurants serve fondue with Jungfrau as the backdrop. The Funky Chocolate Club also offers fondue evenings alongside chocolate workshops.</li>
+          <li><strong>Hobelkäse</strong> — A specialty of the Bernese Oberland: aged mountain cheese shaved into thin curls. Find it at the market or in local restaurants. Pairs with rye bread and a glass of local white wine.</li>
+          <li><strong>Bircher Muesli</strong> — Invented by a Swiss doctor in 1900, overnight oats with fresh apple, oats, lemon juice, and cream. The original version, served as a hotel breakfast across Switzerland, is worth seeking out.</li>
+        </ul>
         <div class="highlights">
           <span class="highlight-tag">Jungfraujoch</span>
           <span class="highlight-tag">Lauterbrunnen Valley</span>
@@ -764,6 +849,23 @@
         <p class="stop-tagline">The Matterhorn, up close</p>
         <p class="stop-desc">No cars. No exhaust. Zermatt is one of those rare places that has genuinely preserved itself — electric vehicles only, narrow cobblestone streets, wooden chalets, and no chain hotels above a certain height. The Matterhorn rises directly above town, its jagged pyramid unmistakable at any hour. At sunrise it turns pink. At dusk it catches the last light while the valley goes dark.</p>
         <p class="stop-desc">The Gornergrat Railway — a red cog train that climbs from town — reaches 10,170 feet and deposits you at eye level with the Matterhorn and 29 surrounding peaks above 4,000 meters. It's one of the great train rides in the world. Trails from the top range from easy walks to serious alpine routes.</p>
+
+        <p class="stop-section-label">Must-Do Activities</p>
+        <ul class="activity-list">
+          <li><strong>Gornergrat Railway</strong> — The must-do. Red cog train climbs from Zermatt station to 3,089m with the Matterhorn filling the window the entire way up. At the top: the Monte Rosa massif, 29 peaks above 4,000m, and the largest glacier in the Alps. Sunrise trips are spectacular. Book in advance.</li>
+          <li><strong>Matterhorn sunrise</strong> — Set an alarm. The Matterhorn turns deep pink at first light and the village is completely still. Stand at the Riffelberg viewpoint or simply walk out of your hotel door.</li>
+          <li><strong>Five Lakes Walk</strong> — A classic half-day hike connecting five mountain lakes, each reflecting the Matterhorn from a different angle. Moderate difficulty, roughly 3 hours. One of the most photographed hikes in Switzerland.</li>
+          <li><strong>Glacier Paradise cable car</strong> — Climbs to 3,883m, the highest cable car in the Alps. Year-round snow, a ski tunnel, and an ice cave. Stop at Schwarzsee on the way for the closest Matterhorn views of the trip.</li>
+          <li><strong>Village wander</strong> — Zermatt has no cars. Walk the cobblestone lanes, browse the chalets, and soak in the silence. The old village cemetery, filled with alpine climbers who died on the surrounding peaks, is quietly haunting.</li>
+        </ul>
+
+        <p class="stop-section-label food">Must Eat</p>
+        <ul class="food-list">
+          <li><strong>Raclette du Valais AOP</strong> — Zermatt is in the Valais canton, where raclette originates. The local version — made from cows grazing on alpine meadows — is richer and more aromatic than anything you'll find elsewhere. Try it at Walliserstube.</li>
+          <li><strong>Valais dried meat (Viande séchée)</strong> — Thinly sliced, air-dried beef from the Valais region. Served with raclette or as a standalone starter. A local staple you won't find like this anywhere else.</li>
+          <li><strong>Black-nosed lamb</strong> — The famous Valais Blacknose sheep graze on alpine herbs above Zermatt. The meat is rare, delicate, and only available in the best restaurants in town. Worth ordering if you see it.</li>
+          <li><strong>Valais wines</strong> — Switzerland's largest wine region. Ask for a Petite Arvine or Amigne — local white varieties with mineral character you can't get outside Valais. Order a bottle with dinner.</li>
+        </ul>
         <div class="highlights">
           <span class="highlight-tag">Matterhorn</span>
           <span class="highlight-tag">Gornergrat Railway</span>
@@ -784,6 +886,22 @@
         <h3>Innsbruck</h3>
         <p class="stop-tagline">Where the Tyrol Alps meet Habsburg history</p>
         <p class="stop-desc">Innsbruck is where you cross into Austria, and it announces itself immediately — the Nordkette mountain range rises almost vertically from the edge of the old town, making it one of the only cities in the world where you can be in a Gothic street and see ski slopes above you. The Altstadt is anchored by the Golden Roof, a gilded Gothic balcony built for Emperor Maximilian I in 1500. The Hofburg Imperial Palace is nearby. The Nordkette funicular runs from the city center to 2,256 meters in under 20 minutes.</p>
+
+        <p class="stop-section-label">Must-Do Activities</p>
+        <ul class="activity-list">
+          <li><strong>Nordkette funicular</strong> — Designed by Zaha Hadid, this futuristic funicular departs from the city center and reaches 2,256m in under 20 minutes. At the top: ski slopes in summer, hiking trails, and a panorama that puts the city directly below the peaks. Genuinely dramatic.</li>
+          <li><strong>Golden Roof (Goldenes Dachl)</strong> — The gilded Gothic balcony Emperor Maximilian I built in 1500 to watch tournaments from. 2,657 fire-gilded copper tiles. The anchor of the medieval Altstadt.</li>
+          <li><strong>Hofburg Imperial Palace</strong> — The Habsburg imperial court in the heart of Innsbruck. Grand staterooms, Habsburg portraits, and the Imperial Apartments. Quieter and more intimate than Vienna's Hofburg.</li>
+          <li><strong>Bergisel Ski Jump</strong> — Another Zaha Hadid building: a soaring concrete ski jump tower with a panoramic café at the top. Views over the city and Inn Valley are extraordinary even when there's no snow.</li>
+        </ul>
+
+        <p class="stop-section-label food">Must Eat</p>
+        <ul class="food-list">
+          <li><strong>Tiroler Gröstl</strong> — Tyrolean pan-fried potatoes with bacon, onions, and a fried egg on top. The definitive Innsbruck comfort dish, found on every menu in the Altstadt.</li>
+          <li><strong>Speckknödel</strong> — Tyrolean dumplings packed with smoked bacon (Speck), served in broth or with sauerkraut. Hearty mountain food at its best.</li>
+          <li><strong>Wiener Schnitzel</strong> — You're now in Austria. This is where the schnitzel gets serious. A proper veal schnitzel with potato salad and cranberries. Try it at a traditional Gasthaus in the old town.</li>
+          <li><strong>Tyrolean Speck</strong> — Aromatic cold-smoked and dry-cured ham from the mountains. Different from Italian prosciutto — smokier, denser, more complex. Order it as a starter with dark bread.</li>
+        </ul>
         <div class="highlights">
           <span class="highlight-tag">Golden Roof</span>
           <span class="highlight-tag">Nordkette Funicular</span>
@@ -793,7 +911,7 @@
       </div>
     </div>
 
-    <!-- HALLSTATT -->
+    <!-- SALZBURG -->
     <div class="stop">
       <div class="stop-date-col">
         <div class="stop-dates">Jul 26</div>
@@ -804,12 +922,23 @@
         <h3>Salzburg</h3>
         <p class="stop-tagline">Mozart's city, fortress on the hill</p>
         <p class="stop-desc">Salzburg is a proper European city with one of the finest baroque old towns on the continent. Arrive from Innsbruck in the early afternoon — the Railjet takes just over 2 hours — and head straight into the old town. The Hohensalzburg Fortress — the largest fully preserved medieval castle in Central Europe — sits on a hill above the city. The view from up there at sunset, over terracotta rooftops toward the Alps, is the defining image of the trip. Mozart was born here; his birthplace is a small museum on the Getreidegasse, the main shopping street with its beautiful wrought-iron guild signs. The Mirabell Gardens are a short walk across the river.</p>
-        <div class="highlights">
-          <span class="highlight-tag">Hohensalzburg Fortress</span>
-          <span class="highlight-tag">Getreidegasse</span>
-          <span class="highlight-tag">Mirabell Gardens</span>
-          <span class="highlight-tag">Mozart's Birthplace</span>
-        </div>
+
+        <p class="stop-section-label">Must-Do Activities</p>
+        <ul class="activity-list">
+          <li><strong>Hohensalzburg Fortress</strong> — Walk or take the funicular up to the largest fully preserved medieval castle in Central Europe. Wander the ramparts at sunset with the Alps behind the city. Don't miss the fortress museums inside.</li>
+          <li><strong>Mirabell Gardens</strong> — The formal baroque gardens where the von Trapp children sang "Do-Re-Mi" in The Sound of Music. Still as manicured and beautiful as the film suggests. Free entry.</li>
+          <li><strong>Getreidegasse</strong> — The main shopping street of the old town, famous for its wrought-iron guild signs hanging above every shop. Mozart was born at No. 9 — the Mozarts Geburtshaus is a small museum worth an hour.</li>
+          <li><strong>Mönchsberg cliff walk</strong> — A short walk up from the old town leads to a clifftop promenade with views over Salzburg's baroque towers. Quieter than the fortress and completely free.</li>
+          <li><strong>St. Peter Stiftskulinarium dinner</strong> — Reportedly the oldest restaurant in Europe, operating since 803 AD in a monastery cellar. Upscale Austrian cuisine in vaulted stone rooms. A splurge worth making.</li>
+        </ul>
+
+        <p class="stop-section-label food">Must Eat</p>
+        <ul class="food-list">
+          <li><strong>Salzburger Nockerl</strong> — Salzburg's signature dessert: a soufflé-like sweet dumpling baked to golden peaks representing the city's three hills. Served tableside directly from the pan. Unmissable.</li>
+          <li><strong>Augustiner Bräustübl</strong> — The city's beloved monastery brewery, founded in 1621. Self-service beer halls with communal tables, local food stalls, and beer served in stone mugs. The most fun you'll have in Salzburg.</li>
+          <li><strong>Wiener Schnitzel</strong> — Order it at Zum Fidelen Affen or Bärenwirt, both long-standing local institutions in the Altstadt. Proper veal, not pork.</li>
+          <li><strong>Mozart Kugeln</strong> — The original Mozartkugeln chocolate balls (pistachio marzipan, nougat, dark chocolate) were created here in 1890. Buy the red-wrapped originals from Café Fürst, not the mass-produced imitations.</li>
+        </ul>
       </div>
     </div>
 
@@ -825,6 +954,22 @@
         <p class="stop-tagline">The most beautiful village in the world</p>
         <p class="stop-desc">Hallstatt is real, despite looking like a movie set. A village of 700 people built into a sheer cliff face above an emerald Alpine lake, with salt mines that have been in operation for 7,000 years (the oldest in the world). It's a UNESCO World Heritage Site and the visual inspiration for Arendelle in Frozen. You arrive by train to the opposite shore, then take a short ferry across.</p>
         <p class="stop-desc">The Hallstatt Skywalk gives a birds-eye view of the entire village from a platform above it. The Salt Mine tour is genuinely interesting — miners' slides, an underground salt lake, and the history of a civilization built on salt. The village itself is small enough to walk completely in an hour, but beautiful enough to spend two nights without running out of things to look at. Book accommodation far in advance — there are very few rooms and demand is enormous.</p>
+
+        <p class="stop-section-label">Must-Do Activities</p>
+        <ul class="activity-list">
+          <li><strong>Hallstatt Skywalk</strong> — Take the funicular up to the Skywalk platform for an aerial view of the entire village, lake, and surrounding peaks. Best in morning light when the valley mist is still lifting. Combined ticket includes the Salt Mine.</li>
+          <li><strong>Salt Mine tour (Salzwelten)</strong> — The oldest salt mine in the world, operating for 7,000 years. The tour includes miners' wooden slides, an underground salt lake, and a light show. Fascinating history of the civilization that built this village on salt wealth.</li>
+          <li><strong>Lake kayak or rowboat</strong> — Rent a rowboat and paddle out onto the Hallstätter See. The view of the village from the water — cliffs above, church spire, wooden houses — is the defining image of the entire trip.</li>
+          <li><strong>Echern Valley hike</strong> — Trail from the village up through beech forest to the Waldbachstrub waterfall and Glacier Garden (Gletschergarten). 3–4 hours round trip, moderate difficulty, with views back over the lake.</li>
+          <li><strong>Sit at the lakefront at dusk</strong> — After the day-trippers leave, Hallstatt becomes a different place. The light on the mountains at golden hour, the stillness of the lake, the absence of noise. This is what the second night is for.</li>
+        </ul>
+
+        <p class="stop-section-label food">Must Eat</p>
+        <ul class="food-list">
+          <li><strong>Freshwater fish from the lake</strong> — Hallstätter See trout and char are served in every restaurant in the village. This is mountain lake fish at its purest — simple preparation, lake-fresh, usually grilled with herbs and lemon.</li>
+          <li><strong>Kaiserschmarrn</strong> — The Austrian shredded pancake, caramelized in butter and served with plum compote. A standard dessert across Austria but particularly good at alpine huts like the ones above Hallstatt.</li>
+          <li><strong>Apfelstrudel</strong> — Thin pastry layers around cinnamon apple filling, served warm with vanilla sauce and whipped cream. Order it at Café Simony or any village café overlooking the lake.</li>
+        </ul>
         <div class="highlights">
           <span class="highlight-tag">Skywalk viewpoint</span>
           <span class="highlight-tag">Salt Mine tour</span>
@@ -846,6 +991,25 @@
         <h3>Vienna</h3>
         <p class="stop-tagline">The grand finale — one night in the imperial capital</p>
         <p class="stop-desc">The train from Hallstatt takes 3.5–4 hours, routing back through the Salzkammergut and into Vienna Hbf. Vienna is one of the great imperial cities of Europe, built on the wealth of the Habsburg empire. Arrive in the afternoon and spend the evening on the Ringstrasse boulevard, visiting the Stephansdom cathedral, and dining in the Innere Stadt. The Naschmarkt — Vienna's famous open-air market — is worth a morning visit before heading to the airport. Fly home from Vienna International Airport (VIE), which has direct connections across the globe.</p>
+
+        <p class="stop-section-label">Must-Do Activities</p>
+        <ul class="activity-list">
+          <li><strong>Stephansdom</strong> — The Gothic cathedral at the heart of Vienna. Climb the South Tower (343 steps) for rooftop views over the city, or take the elevator up the North Tower. The mosaic roof tiles are best seen from above.</li>
+          <li><strong>Kunsthistorisches Museum</strong> — One of the great art museums in the world, housed in a palatial building built by Emperor Franz Joseph I. Bruegel, Vermeer, Caravaggio, Raphael, Velázquez — the collection is staggering. Budget half a day.</li>
+          <li><strong>Belvedere Palace & Gardens</strong> — Two baroque palaces connected by formal gardens with a canal reflecting the upper palace. Klimt's "The Kiss" is here. The view of the city from the upper terrace is one of Vienna's best.</li>
+          <li><strong>Naschmarkt</strong> — Vienna's mile-long open-air market stretching from Karlsplatz. Fresh produce, cheese, olives, spices, falafel, seafood, Austrian delis. Go on Saturday when the flea market also runs alongside it.</li>
+          <li><strong>A traditional Viennese coffeehouse</strong> — UNESCO-listed cultural heritage. Sit at Café Central, Landtmann, or Café Sperl. Order a Melange (espresso with steamed milk), a slice of cake, and read the newspaper like a Viennese. No rush — the waiter won't come back until you ask.</li>
+          <li><strong>Ringstrasse evening walk</strong> — The boulevard Emperor Franz Joseph I built in the 1860s to encircle the inner city. The Opera House, Parliament, City Hall, and Burgtheater line the ring. Best at dusk when the buildings are lit.</li>
+        </ul>
+
+        <p class="stop-section-label food">Must Eat</p>
+        <ul class="food-list">
+          <li><strong>Wiener Schnitzel at Figlmüller</strong> — The definitive Vienna schnitzel experience. Their schnitzel is larger than the plate. Order the veal (Kalb), not the pork. Book ahead — it fills up every night. The Bäckerstraße location is the original.</li>
+          <li><strong>Sachertorte at Café Sacher</strong> — The original 1832 recipe: dense chocolate cake with apricot jam, covered in dark chocolate glaze. Eat it at the hotel where it was invented with a Melange alongside. A mandatory Vienna ritual.</li>
+          <li><strong>Tafelspitz at Plachutta</strong> — Boiled prime beef in broth with horseradish sauce, roasted potatoes, and creamed spinach. Emperor Franz Joseph's daily meal. The definitive address in Vienna is Plachutta Wollzeile — a reservation is essential.</li>
+          <li><strong>Apfelstrudel at Café Central</strong> — The most beautiful coffeehouse in Vienna, in a vaulted Gothic arcade where Freud and Trotsky once drank coffee. The strudel here is exceptional — warm, flaky, served with vanilla sauce.</li>
+          <li><strong>Würstelstand sausage</strong> — Vienna's legendary street food stands, open late. Order a Käsekrainer (cheese-filled pork sausage) with mustard and a bread roll. The stand at the corner of Favoriten- and Gudrunstraße is a local institution.</li>
+        </ul>
         <div class="highlights">
           <span class="highlight-tag">Stephansdom</span>
           <span class="highlight-tag">Ringstrasse</span>
