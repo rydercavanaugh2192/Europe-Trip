@@ -515,6 +515,36 @@
     font-size: 0.5rem;
     top: 0.45rem;
   }
+
+  /* ── HOTEL CARD ── */
+  .hotel-card {
+    margin-top: 1.2rem;
+    padding: 1rem 1.2rem;
+    background: var(--mist);
+    border-left: 3px solid var(--alpine);
+    font-size: 0.85rem;
+  }
+  .hotel-card-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--alpine);
+    margin-bottom: 0.4rem;
+  }
+  .hotel-card-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+  }
+  .hotel-card-details {
+    font-size: 0.82rem;
+    color: var(--mid);
+    line-height: 1.7;
+  }
+  .hotel-card-details strong { color: var(--ink); }
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
@@ -756,6 +786,11 @@
           <span class="highlight-tag">Lake Zurich</span>
           <span class="highlight-tag">Bahnhofstrasse</span>
         </div>
+        <div class="hotel-card">
+          <div class="hotel-card-label">Where We're Staying</div>
+          <div class="hotel-card-name">TBD</div>
+          <div class="hotel-card-details">Not yet booked — check back soon.</div>
+        </div>
       </div>
     </div>
 
@@ -797,6 +832,15 @@
           <span class="highlight-tag">Mount Rigi</span>
           <span class="highlight-tag">Lion Monument</span>
           <span class="highlight-tag">Stoos Ridge Hike</span>
+        </div>
+        <div class="hotel-card">
+          <div class="hotel-card-label">Where We're Staying — Confirmed ✓</div>
+          <div class="hotel-card-name">AMERON Luzern Hotel Flora</div>
+          <div class="hotel-card-details">
+            Seidenhofstrasse 5, CH-6002 Luzern &nbsp;·&nbsp; <a href="https://flora-hotel.ch" target="_blank" style="color:var(--alpine)">flora-hotel.ch</a><br>
+            <strong>Check-in:</strong> Jul 20 &nbsp;·&nbsp; <strong>Check-out:</strong> Jul 22 &nbsp;·&nbsp; 2 nights<br>
+            <strong>Room:</strong> Boutique Premium &nbsp;·&nbsp; <strong>Confirmation:</strong> HFL-3BD601-24612
+          </div>
         </div>
       </div>
     </div>
@@ -871,6 +915,11 @@
           <span class="highlight-tag">Gornergrat Railway</span>
           <span class="highlight-tag">Car-free village</span>
           <span class="highlight-tag">Alpine trails</span>
+        </div>
+        <div class="hotel-card">
+          <div class="hotel-card-label">Where We're Staying</div>
+          <div class="hotel-card-name">TBD</div>
+          <div class="hotel-card-details">Not yet booked — check back soon.</div>
         </div>
       </div>
     </div>
