@@ -545,6 +545,85 @@
     line-height: 1.7;
   }
   .hotel-card-details strong { color: var(--ink); }
+
+  /* ── DAY BY DAY ── */
+  .day-schedule { max-width: 820px; margin: 0 auto; padding: 5rem 2rem; }
+
+  .day-row {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 0 2.5rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .day-row:first-of-type { border-top: 1px solid var(--rule); }
+
+  .day-label {
+    padding-top: 0.15rem;
+  }
+  .day-date {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+  .day-city {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-top: 0.3rem;
+  }
+
+  .day-content h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .day-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .day-items li {
+    font-size: 0.87rem;
+    color: #4a4740;
+    line-height: 1.75;
+    padding: 0.15rem 0 0.15rem 1.4rem;
+    position: relative;
+  }
+  .day-items li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--alpine);
+  }
+  .day-items li.travel::before { background: var(--gold); }
+  .day-items li.food::before { background: #c17a4a; }
+  .day-items li.flag { color: var(--mid); font-style: italic; }
+  .day-items li.flag::before { background: var(--rule); }
+
+  .day-time {
+    display: inline-block;
+    font-weight: 500;
+    color: var(--ink);
+    min-width: 3.5rem;
+    margin-right: 0.3rem;
+  }
+
+  @media (max-width: 600px) {
+    .day-row { grid-template-columns: 1fr; gap: 0.4rem; }
+    .day-label { display: flex; gap: 1rem; align-items: baseline; }
+  }
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
@@ -869,14 +948,12 @@
         <p class="stop-tagline">Alpine lake city with a medieval heart</p>
         <p class="stop-desc">Lucerne is where Switzerland clicks into place. The city sits on a glittering lake ringed by Alps, and its 14th-century Chapel Bridge (Kapellbrücke) — covered wooden walkway, flower boxes, painted panels — is one of the most photographed structures in Europe. The city walls are intact and walkable. The Lion Monument, a dying lion carved into a cliff face, is genuinely moving.</p>
         <p class="stop-desc">The headline excursion is <strong>Mount Pilatus</strong> — home to the world's steepest cogwheel railway, climbing from Alpnachstad at a maximum gradient of 48°. Take the cogwheel up and a gondola down (or vice versa) for a full loop with views across 73 Alpine peaks. At the summit there are walking trails, a panorama restaurant, and on clear days visibility stretching into Germany and France. A must-do half-day trip.</p>
-        <p class="stop-desc"><strong>Mount Rigi</strong> — the "Queen of the Mountains" — is worth considering as a hike. At 1,798 meters, it sits directly above Lake Lucerne and offers one of the most sweeping views in Switzerland: five lakes, the Swiss Plateau, and the full Bernese and Central Alps spread out in every direction. The classic route is a 3–4 hour hike up from Weggis or Vitznau, with a rack railway back down. Less dramatic than Pilatus but more suited to a proper day of hiking.</p>
         <p class="stop-desc">Also not to be missed: the <strong>Stoos Ridge Hike</strong> (Klingenstock to Fraunalpstock), one of the most scenic ridge walks in central Switzerland. The trail runs along an exposed Alpine ridge with panoramic views in every direction — the Bernese Alps, Lake Lucerne, and the surrounding valleys spread out below. The hike takes roughly 2–3 hours and is best done on a clear morning. Access is via the Stoos funicular, one of the world's steepest, from Schwyz.</p>
 
         <p class="stop-section-label">Must-Do Activities</p>
         <ul class="activity-list">
           <li><strong>Mount Pilatus cogwheel railway</strong> — World's steepest cogwheel (48° gradient) from Alpnachstad to the summit. Combine with the gondola for a full loop. Book online in advance for July. Half-day.</li>
           <li><strong>Stoos Ridge Hike</strong> — Klingenstock to Fraunalpstock. One of the best ridge walks in Switzerland. Take the Stoos funicular from Schwyz, then hike the exposed ridge with 360° views. 2–3 hrs.</li>
-          <li><strong>Mount Rigi hike</strong> — Hike up from Weggis or Vitznau (3–4 hrs), then take the rack railway back down. Sweeping views of five lakes and the full Alpine panorama. Great full-day option.</li>
           <li><strong>Lake Lucerne boat cruise</strong> — The CGN steamers run multiple routes. Even a short loop gives stunning reflections of the Alps in the water. Best in the morning on a clear day.</li>
           <li><strong>Chapel Bridge & Lion Monument</strong> — Walk the 14th-century Kapellbrücke, then find the Lion Monument carved into the cliff face. The latter is one of the most emotionally striking sculptures in Europe.</li>
         </ul>
@@ -892,7 +969,6 @@
           <span class="highlight-tag">Chapel Bridge</span>
           <span class="highlight-tag">Mount Pilatus</span>
           <span class="highlight-tag">Lake Cruise</span>
-          <span class="highlight-tag">Mount Rigi</span>
           <span class="highlight-tag">Lion Monument</span>
           <span class="highlight-tag">Stoos Ridge Hike</span>
         </div>
@@ -999,11 +1075,10 @@
       <div class="stop-content">
         <h3>Innsbruck</h3>
         <p class="stop-tagline">Where the Tyrol Alps meet Habsburg history</p>
-        <p class="stop-desc">Innsbruck is where you cross into Austria, and it announces itself immediately — the Nordkette mountain range rises almost vertically from the edge of the old town, making it one of the only cities in the world where you can be in a Gothic street and see ski slopes above you. The Altstadt is anchored by the Golden Roof, a gilded Gothic balcony built for Emperor Maximilian I in 1500. The Hofburg Imperial Palace is nearby. The Nordkette funicular runs from the city center to 2,256 meters in under 20 minutes.</p>
+        <p class="stop-desc">Innsbruck is where you cross into Austria, and it announces itself immediately — the Nordkette mountain range rises almost vertically from the edge of the old town, making it one of the only cities in the world where you can be in a Gothic street and see ski slopes above you. The Altstadt is anchored by the Golden Roof, a gilded Gothic balcony built for Emperor Maximilian I in 1500. The Hofburg Imperial Palace is nearby.</p>
 
         <p class="stop-section-label">Must-Do Activities</p>
         <ul class="activity-list">
-          <li><strong>Nordkette funicular</strong> — Designed by Zaha Hadid, this futuristic funicular departs from the city center and reaches 2,256m in under 20 minutes. At the top: ski slopes in summer, hiking trails, and a panorama that puts the city directly below the peaks. Genuinely dramatic.</li>
           <li><strong>Golden Roof (Goldenes Dachl)</strong> — The gilded Gothic balcony Emperor Maximilian I built in 1500 to watch tournaments from. 2,657 fire-gilded copper tiles. The anchor of the medieval Altstadt.</li>
           <li><strong>Hofburg Imperial Palace</strong> — The Habsburg imperial court in the heart of Innsbruck. Grand staterooms, Habsburg portraits, and the Imperial Apartments. Quieter and more intimate than Vienna's Hofburg.</li>
           <li><strong>Bergisel Ski Jump</strong> — Another Zaha Hadid building: a soaring concrete ski jump tower with a panoramic café at the top. Views over the city and Inn Valley are extraordinary even when there's no snow.</li>
@@ -1018,7 +1093,6 @@
         </ul>
         <div class="highlights">
           <span class="highlight-tag">Golden Roof</span>
-          <span class="highlight-tag">Nordkette Funicular</span>
           <span class="highlight-tag">Hofburg Palace</span>
           <span class="highlight-tag">Altstadt</span>
         </div>
@@ -1225,6 +1299,247 @@
       <strong style="color:var(--ink);">Rail passes:</strong> A Swiss Travel Pass covers most Swiss trains, including scenic mountain railways. For Austria, point-to-point tickets are typically sufficient. Buy mountain railway tickets (Jungfraujoch, Gornergrat, Pilatus) in advance — July is peak season and they sell out.
     </p>
   </div>
+</div>
+
+<!-- DAY BY DAY -->
+<div style="background:var(--mist);">
+<div class="day-schedule">
+  <p class="section-eyebrow">Day by Day</p>
+  <h2 class="section-title">The Full Schedule</h2>
+  <p class="section-intro">Suggested timings for each day, built around travel connections, mountain excursions, and making the most of each destination. Gold dots are travel, green are activities, orange are food.</p>
+
+  <div class="day-row">
+    <div class="day-label">
+      <div class="day-date">Jul 19</div>
+      <div class="day-city">Zürich</div>
+    </div>
+    <div class="day-content">
+      <ul class="day-items">
+        <li><span class="day-time">10:20</span> Michelle arrives ZRH (Aer Lingus from Dublin)</li>
+        <li><span class="day-time">11:05</span> Ryder arrives ZRH (KLM from Amsterdam)</li>
+        <li><span class="day-time">~12:00</span> Meet at airport, transfer to Hotel Central Plaza</li>
+        <li><span class="day-time">Afternoon</span> Altstadt walk — Grossmünster, Limmat River, Lindenhügel viewpoint</li>
+        <li><span class="day-time">Evening</span> Dinner in Niederdorf quarter — book Swiss Chuchi in advance for fondue</li>
+        <li class="flag">One night. Early to bed — full day tomorrow.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day-row">
+    <div class="day-label">
+      <div class="day-date">Jul 20</div>
+      <div class="day-city">Lucerne</div>
+    </div>
+    <div class="day-content">
+      <ul class="day-items">
+        <li class="travel"><span class="day-time">09:10</span> Train Zürich HB → Lucerne (IR70, 41 min, arr. 09:51)</li>
+        <li><span class="day-time">~10:30</span> Check in AMERON Flora, drop bags</li>
+        <li class="travel"><span class="day-time">~11:00</span> Boat from Lucerne to Alpnachstad (~1 hr, scenic Lake Lucerne — covered by Half Fare Card)</li>
+        <li><span class="day-time">~12:00</span> Board Pilatus cogwheel railway from Alpnachstad (world's steepest, 30 min up)</li>
+        <li><span class="day-time">~13:00</span> Summit — lunch at Pilatus-Kulm restaurant (book ahead), panorama walks, 73 Alpine peaks</li>
+        <li class="travel"><span class="day-time">~15:00</span> Gondola down to Kriens, bus back to Lucerne</li>
+        <li><span class="day-time">Evening</span> Chapel Bridge and Lion Monument walk, dinner in the old town</li>
+        <li class="flag">Full day excursion. Allow 6 hours door-to-door for Pilatus Golden Round Trip.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day-row">
+    <div class="day-label">
+      <div class="day-date">Jul 21</div>
+      <div class="day-city">Lucerne</div>
+    </div>
+    <div class="day-content">
+      <ul class="day-items">
+        <li class="travel"><span class="day-time">08:30</span> Train Lucerne → Schwyz (~35 min), then Stoos funicular (world's steepest funicular, 4 min)</li>
+        <li><span class="day-time">~10:00</span> Start Stoos Ridge Hike — Klingenstock to Fraunalpstock. Exposed ridge, 360° Alpine views. 2–3 hrs.</li>
+        <li><span class="day-time">~13:00</span> Back down via funicular, train back to Lucerne by 14:30</li>
+        <li><span class="day-time">Afternoon</span> Lake Lucerne boat cruise (covered free with Half Fare Card day ticket)</li>
+        <li><span class="day-time">Late afternoon</span> Lucerne old town — Mueseum of Transport or free wander</li>
+        <li class="food"><span class="day-time">Evening</span> Raclette dinner — try Restaurant Luz or Wirtshaus Galliker</li>
+        <li class="flag">Last night in Lucerne. Pack for Interlaken tomorrow.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day-row">
+    <div class="day-label">
+      <div class="day-date">Jul 22</div>
+      <div class="day-city">Interlaken</div>
+    </div>
+    <div class="day-content">
+      <ul class="day-items">
+        <li class="travel"><span class="day-time">09:06</span> Train Lucerne → Interlaken Ost via Brünig Pass (1h 48min, arr. 10:54) — scenic mountain pass route</li>
+        <li><span class="day-time">~11:30</span> Check in, drop bags</li>
+        <li class="travel"><span class="day-time">~12:30</span> Train to Lauterbrunnen (20 min) — Staubbachfall waterfall, glacial valley floor walk</li>
+        <li><span class="day-time">~15:00</span> Back to Interlaken — Höheweg promenade, Jungfrau views from town</li>
+        <li class="food"><span class="day-time">Evening</span> Dinner in Interlaken — Gasthof Hirschen for Hobelkäse and local Bernese dishes</li>
+        <li class="flag">One night. If doing Jungfraujoch: depart 07:30, arrive summit by 10:00 before clouds. Skip Lauterbrunnen that day.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day-row">
+    <div class="day-label">
+      <div class="day-date">Jul 23</div>
+      <div class="day-city">Zermatt</div>
+    </div>
+    <div class="day-content">
+      <ul class="day-items">
+        <li class="travel"><span class="day-time">09:29</span> Train Interlaken Ost → Zermatt via Brig (2h 18min, arr. ~11:50)</li>
+        <li><span class="day-time">~12:30</span> Check in Grand Hotel Zermatterhof, settle in</li>
+        <li><span class="day-time">~14:00</span> Village walk — cobblestone lanes, car-free streets, old cemetery</li>
+        <li class="travel"><span class="day-time">~15:30</span> Cable car up to Schwarzsee — closest Matterhorn views, easy walk around the lake (1.5 hrs)</li>
+        <li><span class="day-time">~18:00</span> Back in village, first Matterhorn sunset from hotel terrace or Bahnhofstrasse</li>
+        <li class="food"><span class="day-time">Evening</span> Raclette du Valais at Walliserstube — the original Zermatt version. Book ahead.</li>
+        <li class="flag">Set alarm for sunrise. Tomorrow is the big mountain day.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day-row">
+    <div class="day-label">
+      <div class="day-date">Jul 24</div>
+      <div class="day-city">Zermatt</div>
+    </div>
+    <div class="day-content">
+      <ul class="day-items">
+        <li class="travel"><span class="day-time">~06:45</span> Gornergrat Railway first departure from Zermatt — sunrise on the Matterhorn from 3,089m</li>
+        <li><span class="day-time">~07:30</span> Summit — golden hour on the Matterhorn, Gorner Glacier, 29 peaks above 4,000m</li>
+        <li class="travel"><span class="day-time">~09:30</span> Descend — hike the Five Lakes Walk from Rotenboden down to Zermatt (~3 hrs, moderate)</li>
+        <li><span class="day-time">~12:30</span> Back in village, lunch</li>
+        <li class="travel"><span class="day-time">~13:30</span> Glacier Paradise cable car up to Klein Matterhorn (3,883m — Europe's highest cable car, 40 min)</li>
+        <li><span class="day-time">~14:30</span> Summit — Glacier Palace ice cave, 360° panorama of 38 four-thousand-metre peaks</li>
+        <li class="travel"><span class="day-time">~16:30</span> Back in Zermatt</li>
+        <li class="food"><span class="day-time">Evening</span> Valais wines and black-nosed lamb if available — ask the Zermatterhof concierge for the best option tonight</li>
+        <li class="flag">Very full day. Pace yourselves between the two summits.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day-row">
+    <div class="day-label">
+      <div class="day-date">Jul 25</div>
+      <div class="day-city">Innsbruck</div>
+    </div>
+    <div class="day-content">
+      <ul class="day-items">
+        <li class="flag">Long travel day (~8 hrs). Depart as early as possible.</li>
+        <li class="travel"><span class="day-time">08:06</span> Train Zermatt → Innsbruck via Visp (arr. ~15:43, 4–5 changes)</li>
+        <li><span class="day-time">~16:30</span> Check in, freshen up</li>
+        <li><span class="day-time">~17:30</span> Golden Roof (Goldenes Dachl) and Altstadt walk — 1 hour, everything is within 5 minutes on foot</li>
+        <li><span class="day-time">~18:30</span> Hofburg Imperial Palace exterior (interior closes ~17:00)</li>
+        <li class="food"><span class="day-time">~19:30</span> Dinner — Tiroler Gröstl and Speckknödel at a Gasthof in the Altstadt. Skip the funicular tonight.</li>
+        <li class="flag">One night. Early departure tomorrow — Railjet to Salzburg is fast and comfortable.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day-row">
+    <div class="day-label">
+      <div class="day-date">Jul 26</div>
+      <div class="day-city">Salzburg</div>
+    </div>
+    <div class="day-content">
+      <ul class="day-items">
+        <li class="travel"><span class="day-time">09:58</span> Railjet Innsbruck → Salzburg (direct, 2h 5min, arr. 12:03)</li>
+        <li><span class="day-time">~13:00</span> Check in, head straight into the old town</li>
+        <li><span class="day-time">~13:30</span> Getreidegasse walk — wrought-iron guild signs, Mozart's birthplace at No. 9</li>
+        <li><span class="day-time">~14:30</span> Mirabell Gardens — 20 min walk across the river</li>
+        <li class="food"><span class="day-time">15:45</span> Dinner at St. Peter Stiftskulinarium ✓ Reserved — Europe's oldest restaurant, monastery cellar</li>
+        <li><span class="day-time">~18:00</span> Hohensalzburg Fortress — funicular up, rampart walk at sunset. Open until 20:00 in summer.</li>
+        <li><span class="day-time">~20:00</span> Augustiner Bräustübl for a beer in the monastery courtyard (open until 23:00)</li>
+        <li class="food"><span class="day-time">Before bed</span> Mozart Kugeln from Café Fürst on Alter Markt — the red-wrapped originals</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day-row">
+    <div class="day-label">
+      <div class="day-date">Jul 27</div>
+      <div class="day-city">Hallstatt</div>
+    </div>
+    <div class="day-content">
+      <ul class="day-items">
+        <li class="travel"><span class="day-time">~09:00</span> Train Salzburg → Attnang-Puchheim → Hallstatt Bahnhof (~4.5 hrs), then 3-min ferry across the lake</li>
+        <li><span class="day-time">~13:30</span> Arrive, check in, walk the village — market square, church, bone house, lakefront</li>
+        <li><span class="day-time">~15:30</span> Echern Valley hike — beech forest trail to Waldbachstrub waterfall. 2 hrs round trip, back by 17:30.</li>
+        <li><span class="day-time">~18:00</span> Lakefront at golden hour — sit and watch the light change on the mountains</li>
+        <li class="food"><span class="day-time">Evening</span> Freshwater lake trout at a village restaurant — Gasthof Simony or Bräugasthof Hallstatt</li>
+        <li class="flag">Save salt mine and Skywalk for tomorrow morning when you're fresh.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day-row">
+    <div class="day-label">
+      <div class="day-date">Jul 28</div>
+      <div class="day-city">Hallstatt</div>
+    </div>
+    <div class="day-content">
+      <ul class="day-items">
+        <li class="travel"><span class="day-time">08:30</span> Funicular up to Skywalk — aerial view of the village before the day-trippers arrive</li>
+        <li><span class="day-time">~09:00</span> Salt Mine tour (Salzwelten) — miners' slides, underground salt lake, Bronze Age cinema. 1.5–2 hrs.</li>
+        <li><span class="day-time">~11:00</span> Back down, Salzwelten Salt Tasting at Marktplatz 159 (free)</li>
+        <li><span class="day-time">~12:00</span> Rowboat or kayak on the lake — rent from the village dock. 1–2 hrs.</li>
+        <li class="food"><span class="day-time">~14:00</span> Late lunch lakeside — Kaiserschmarrn and Apfelstrudel at Café Simony</li>
+        <li><span class="day-time">Afternoon</span> Free time — wander, photograph, sit by the water. This is the point of the second night.</li>
+        <li><span class="day-time">Evening</span> Last sunset over the lake</li>
+        <li class="flag">Book salt mine in advance at salzwelten.at — July is peak season and slots fill up.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day-row">
+    <div class="day-label">
+      <div class="day-date">Jul 29</div>
+      <div class="day-city">Vienna</div>
+    </div>
+    <div class="day-content">
+      <ul class="day-items">
+        <li class="travel"><span class="day-time">~09:00</span> Ferry across lake, train Hallstatt → Vienna Hbf (~3.5–4 hrs, arr. ~13:00)</li>
+        <li><span class="day-time">~14:00</span> Check in, Stephansdom — climb the South Tower (343 steps) for rooftop views</li>
+        <li><span class="day-time">~16:00</span> Naschmarkt — Vienna's open-air market, closes ~18:00 on weekdays</li>
+        <li><span class="day-time">~17:30</span> Ringstrasse evening walk — Opera House, Parliament, City Hall lit at dusk</li>
+        <li class="food"><span class="day-time">~19:30</span> Wiener Schnitzel at Figlmüller Bäckerstraße — book well in advance, veal not pork</li>
+        <li><span class="day-time">~21:30</span> Würstelstand Käsekrainer — Vienna's late-night street sausage. Cash only.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day-row">
+    <div class="day-label">
+      <div class="day-date">Jul 30</div>
+      <div class="day-city">Vienna</div>
+    </div>
+    <div class="day-content">
+      <ul class="day-items">
+        <li><span class="day-time">Morning</span> Kunsthistorisches Museum — Bruegel, Vermeer, Caravaggio. Allow 3–4 hours minimum.</li>
+        <li class="food"><span class="day-time">~13:00</span> Lunch at Café Central — Apfelstrudel and a Melange in Vienna's most beautiful coffeehouse</li>
+        <li><span class="day-time">~15:00</span> Belvedere Palace — Klimt's "The Kiss," baroque gardens, city panorama from the upper terrace</li>
+        <li><span class="day-time">~18:00</span> Evening walk through the 1st district — Graben, Kohlmarkt, Peterskirche</li>
+        <li class="food"><span class="day-time">~19:30</span> Tafelspitz at Plachutta Wollzeile — Emperor Franz Joseph's daily meal. Reserve ahead.</li>
+        <li class="flag">Early night — flight departs 07:40 tomorrow.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day-row">
+    <div class="day-label">
+      <div class="day-date">Jul 31</div>
+      <div class="day-city">Fly Home</div>
+    </div>
+    <div class="day-content">
+      <ul class="day-items">
+        <li><span class="day-time">05:30</span> Leave hotel</li>
+        <li class="travel"><span class="day-time">~06:45</span> City Airport Train (CAT) from Wien Mitte → VIE Airport (16 min)</li>
+        <li class="travel"><span class="day-time">07:40</span> BA729 Vienna → London Heathrow (arr. 09:15)</li>
+        <li class="travel"><span class="day-time">11:35</span> BA177 London Heathrow → New York JFK (arr. 14:25)</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
 </div>
 
 <!-- PRACTICAL NOTES -->
